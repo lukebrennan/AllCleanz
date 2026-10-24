@@ -7,13 +7,13 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.allcleanz.co.uk/assets/img/hero-home-cleaning.webp</image:loc>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/hero-cleaner.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.allcleanz.co.uk/assets/img/about-surface-cleaning.webp</image:loc>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/about-cleaner.webp</image:loc>
     </image:image>
     <image:image>
-      <image:loc>https://www.allcleanz.co.uk/assets/img/sofa.webp</image:loc>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/services/carpet-sofa.webp</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://www.allcleanz.co.uk/assets/img/before-after/oven-before.webp</image:loc>

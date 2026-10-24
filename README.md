@@ -27,13 +27,7 @@ robots.txt, sitemap.xml, site.webmanifest
 
 All copy, services, claims and testimonials are taken from the existing allcleanz.co.uk site. Nothing has been invented.
 
-Photos: service cards use the photos from the current site. Three stock photos come from Unsplash (free for commercial use under the Unsplash License):
-
-- Hero, `assets/img/hero-home-cleaning*.webp`: PuroClean of Fort Worth, https://unsplash.com/photos/-dc38HdQR1M
-- Before and after, `assets/img/before-after/`: All Cleanz's own photos from their Facebook page, aligned and cropped to match
-- Recent work strip, `assets/img/recent/`: All Cleanz's own photos from their Facebook page; each tile links to the original post. Update by swapping the images and links in the RECENT WORK section of `index.html`
-- Hero inset, `assets/img/cleaning-supplies.webp`: Giorgio Trovato, https://unsplash.com/photos/XxAy813D66I
-- About, `assets/img/about-surface-cleaning.webp`: Towfiqu barbhuiya, https://unsplash.com/photos/ho-p7qLBewk
+Photos: almost all photos are All Cleanz's own, taken from their Facebook page (downloaded at the highest resolution Facebook serves). This includes the hero, the about section, the before and after slider, the recent work strip and the main service cards. A few service cards (office, after build, party, window, car valeting, jet washing, gutter and BBQ cleaning) still use the images from their previous website, as their Facebook has no clear photos of those services yet.
 
 ## SEO
 
