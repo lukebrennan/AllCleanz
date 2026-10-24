@@ -102,34 +102,162 @@
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  /* Demo contact form: check required fields and confirm, nothing is sent yet */
-  var form = document.getElementById('contact-form');
-  if (form) {
-    var status = form.querySelector('.contact-form__status');
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var firstInvalid = null;
-      form.querySelectorAll('input, select, textarea').forEach(function (el) {
-        var ok = el.checkValidity();
-        el.closest('.field').classList.toggle('is-invalid', !ok);
-        el.setAttribute('aria-invalid', String(!ok));
-        if (!ok && !firstInvalid) firstInvalid = el;
+  /* Quote form: one question per step. Not connected to an inbox yet, but the
+     confirmation offers a pre-filled WhatsApp message that does reach the business. */
+  var quote = document.getElementById('quote-form');
+  if (quote) {
+    var steps = Array.prototype.slice.call(quote.querySelectorAll('.quote__step'));
+    var backBtn = quote.querySelector('.quote__back');
+    var nextBtn = quote.querySelector('.quote__next');
+    var submitBtn = quote.querySelector('.quote__submit');
+    var nav = quote.querySelector('.quote__nav');
+    var bar = quote.querySelector('.quote__bar span');
+    var stepNum = quote.querySelector('[data-step-num]');
+    var stepTotal = quote.querySelector('[data-step-total]');
+    var count = quote.querySelector('.quote__count');
+    var done = quote.querySelector('.quote__done');
+    // Services that are always a one off visit skip the "how often" step
+    var oneOffServices = ['End of Tenancy', 'Oven Cleaning', 'Carpet & Upholstery Cleaning'];
+    var current = 0;
+
+    var value = function (name) {
+      var checked = quote.querySelector('input[name="' + name + '"]:checked');
+      return checked ? checked.value : '';
+    };
+    var activeSteps = function () {
+      return steps.filter(function (step) {
+        return step.dataset.step !== 'frequency' || oneOffServices.indexOf(value('service')) === -1;
       });
-      if (firstInvalid) {
-        status.hidden = true;
-        firstInvalid.focus();
+    };
+
+    var show = function (index, focus) {
+      var list = activeSteps();
+      current = index;
+      steps.forEach(function (step) { step.hidden = step !== list[index]; });
+      var last = index === list.length - 1;
+      backBtn.hidden = index === 0;
+      nextBtn.hidden = last;
+      submitBtn.hidden = !last;
+      stepNum.textContent = index + 1;
+      stepTotal.textContent = list.length;
+      bar.style.width = ((index + 1) / list.length * 100) + '%';
+      if (focus) {
+        var target = list[index].querySelector('input:checked') || list[index].querySelector('input');
+        if (target) target.focus();
+      }
+    };
+
+    var validate = function (step) {
+      var ok = true;
+      var error = step.querySelector('.quote__error');
+      if (step.dataset.step === 'service') ok = !!value('service');
+      if (step.dataset.step === 'frequency') ok = !!value('frequency');
+      if (step.dataset.step === 'property') {
+        var type = value('property');
+        ok = !!type && !!value(type === 'Home' ? 'size_home' : 'size_business');
+      }
+      if (step.dataset.step === 'details') {
+        var firstInvalid = null;
+        step.querySelectorAll('input, textarea').forEach(function (el) {
+          var valid = el.checkValidity();
+          el.closest('.field').classList.toggle('is-invalid', !valid);
+          el.setAttribute('aria-invalid', String(!valid));
+          if (!valid && !firstInvalid) firstInvalid = el;
+        });
+        if (firstInvalid) firstInvalid.focus();
+        ok = !firstInvalid;
+      }
+      if (error) error.hidden = ok;
+      return ok;
+    };
+
+    var next = function () {
+      var list = activeSteps();
+      if (!validate(list[current])) return;
+      if (current < list.length - 1) show(current + 1, true);
+    };
+
+    nextBtn.addEventListener('click', next);
+    backBtn.addEventListener('click', function () { show(current - 1, true); });
+
+    quote.addEventListener('change', function (e) {
+      var input = e.target;
+      if (input.type !== 'radio') return;
+      var step = input.closest('.quote__step');
+      var error = step.querySelector('.quote__error');
+      if (error) error.hidden = true;
+      if (input.name === 'property') {
+        quote.querySelectorAll('.quote__size').forEach(function (group) {
+          group.hidden = group.dataset.sizeFor !== input.value;
+        });
         return;
       }
-      form.reset();
-      status.hidden = false;
+      if (input.name === 'service') show(current, false);
+      // Single question steps move on by themselves once answered
+      if (input.name === 'service' || input.name === 'frequency' || input.name.indexOf('size_') === 0) {
+        setTimeout(next, 220);
+      }
     });
-    form.addEventListener('input', function (e) {
+
+    quote.addEventListener('input', function (e) {
       var field = e.target.closest('.field');
       if (field && field.classList.contains('is-invalid') && e.target.checkValidity()) {
         field.classList.remove('is-invalid');
         e.target.setAttribute('aria-invalid', 'false');
       }
     });
+
+    quote.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var list = activeSteps();
+      if (!validate(list[list.length - 1])) return;
+
+      var type = value('property');
+      var rows = [
+        ['Service', value('service')],
+        ['Property', type + ', ' + value(type === 'Home' ? 'size_home' : 'size_business').toLowerCase()],
+        ['How often', oneOffServices.indexOf(value('service')) === -1 ? value('frequency') : 'One off'],
+        ['Name', quote.elements.name.value.trim()],
+        ['Email', quote.elements.email.value.trim()],
+        ['Phone', quote.elements.phone.value.trim()],
+        ['Area', quote.elements.area.value.trim()],
+        ['Message', quote.elements.message.value.trim()]
+      ].filter(function (row) { return row[1]; });
+
+      var summary = done.querySelector('.quote__summary');
+      summary.innerHTML = '';
+      rows.forEach(function (row) {
+        var dt = document.createElement('dt');
+        var dd = document.createElement('dd');
+        dt.textContent = row[0];
+        dd.textContent = row[1];
+        summary.appendChild(dt);
+        summary.appendChild(dd);
+      });
+      var text = "Hi All Cleanz, I'd like a quote please.\n" + rows.map(function (row) {
+        return row[0] + ': ' + row[1];
+      }).join('\n');
+      done.querySelector('.quote__wa').href = 'https://wa.me/447721938429?text=' + encodeURIComponent(text);
+
+      steps.forEach(function (step) { step.hidden = true; });
+      nav.hidden = true;
+      count.hidden = true;
+      bar.style.width = '100%';
+      done.hidden = false;
+      done.focus();
+    });
+
+    done.querySelector('.quote__restart').addEventListener('click', function () {
+      quote.reset();
+      quote.querySelectorAll('.quote__size').forEach(function (group) { group.hidden = true; });
+      quote.querySelectorAll('.is-invalid').forEach(function (el) { el.classList.remove('is-invalid'); });
+      done.hidden = true;
+      nav.hidden = false;
+      count.hidden = false;
+      show(0, true);
+    });
+
+    show(0, false);
   }
 
   /* Footer year */

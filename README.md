@@ -49,6 +49,10 @@ Preview site (GitHub Pages, built from `main`): https://lukebrennan.github.io/Al
 
 The production host (Netlify, `allcleanz.netlify.app`) is paused until launch.
 
+## Forms
+
+The quote form (in the contact section) is a demo: it walks through service, property, frequency and contact details, then shows a summary. It does not send anything to an inbox yet, so connect it (for example with Netlify Forms) before launch. The confirmation screen's "Send these details on WhatsApp" button does work, as do the pre-filled WhatsApp links across the site.
+
 ## Preview passcode
 
 While the site is in preview, every page shows a branded passcode screen (`assets/js/gate.js`, plus a one-line script at the top of each page's `<head>`). The passcode is not case sensitive. Once entered, the browser remembers it.

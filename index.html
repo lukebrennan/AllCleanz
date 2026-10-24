@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,600;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/img/hero-home-cleaning.webp" imagesrcset="assets/img/hero-home-cleaning-800.webp 800w, assets/img/hero-home-cleaning.webp 1500w" imagesizes="(max-width: 960px) 100vw, 50vw" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261024-5">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261024-8">
 
   <script type="application/ld+json">
   {
@@ -115,6 +115,7 @@
     <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
     <symbol id="i-quote" viewBox="0 0 24 24"><path fill="currentColor" d="M9.6 5C5.6 6.4 3 9.6 3 13.8V19h6.6v-6.4H6.4c0-2.6 1.5-4.6 4-5.6L9.6 5Zm11 0c-4 1.4-6.6 4.6-6.6 8.8V19h6.6v-6.4h-3.2c0-2.6 1.5-4.6 4-5.6L20.6 5Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></symbol>
   </svg>
 
@@ -201,11 +202,14 @@
             <a href="tel:+447721938429" class="btn btn--white btn--lg">
               <svg class="ico"><use href="#i-phone"/></svg> Call 07721 938429
             </a>
-            <a href="https://wa.me/447721938429" target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg">
+            <a href="https://wa.me/447721938429?text=Hi%20All%20Cleanz%2C%20I%27d%20like%20a%20quote%20please.%20I%27m%20looking%20for%3A%20" target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg">
               <svg class="ico"><use href="#i-whatsapp"/></svg> WhatsApp Us
             </a>
           </div>
-          <a href="#services" class="hero__textlink">Explore our cleaning services <svg class="ico"><use href="#i-arrow"/></svg></a>
+          <div class="hero__meta">
+            <a href="https://share.google/Gg61WBgD1EcMRRVPn" target="_blank" rel="noopener" class="rating rating--hero"><span class="stars" aria-hidden="true"><span class="stars__base"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span class="stars__fill" style="width: 98%"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></span><span><strong>4.9</strong> rating on Google</span></a>
+            <a href="#services" class="hero__textlink">Explore our services <svg class="ico"><use href="#i-arrow"/></svg></a>
+          </div>
         </div>
 
         <div class="hero__visual">
@@ -289,7 +293,7 @@
           <li class="service-card reveal"><a href="under-construction.html?page=bbq-cleaning"><img src="assets/img/services/bbq.webp" alt="Clean kettle barbecue, BBQ cleaning" width="720" height="540" loading="lazy"><span class="service-card__title">BBQ Cleaning</span><span class="service-card__go" aria-hidden="true"><svg class="ico"><use href="#i-arrow"/></svg></span></a></li>
         </ul>
 
-        <p class="services__more reveal">Would you like more information about a specific service? <a href="https://wa.me/447721938429" target="_blank" rel="noopener">Message us on WhatsApp</a> or <a href="tel:+447721938429">call 07721 938429</a>.</p>
+        <p class="services__more reveal">Would you like more information about a specific service? <a href="https://wa.me/447721938429?text=Hi%20All%20Cleanz%2C%20I%27d%20like%20more%20information%20about%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a> or <a href="tel:+447721938429">call 07721 938429</a>.</p>
       </div>
     </section>
 
@@ -379,6 +383,13 @@
         <div class="section-head reveal">
           <h2 id="testimonials-title" class="section-title">What our customers are saying</h2>
           <p>We are totally committed to our customers and to the quality of cleaning service we provide. Find out here what some of our customers are saying about us.</p>
+          <div class="google-rating">
+            <div class="google-rating__score">
+              <span class="google-rating__num">4.9</span>
+              <span class="google-rating__detail"><span class="stars" aria-hidden="true"><span class="stars__base"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span class="stars__fill" style="width: 98%"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span></span><span>out of 5 on Google</span></span>
+            </div>
+            <a href="https://share.google/Gg61WBgD1EcMRRVPn" target="_blank" rel="noopener" class="btn btn--outline">Read our Google reviews <svg class="ico"><use href="#i-arrow"/></svg></a>
+          </div>
         </div>
         <div class="testimonial-grid">
           <figure class="testimonial reveal">
@@ -410,55 +421,116 @@
           </div>
             <ul class="contact__options">
               <li><a href="tel:+447721938429" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-phone"/></svg></span><span><strong>Call Us</strong>07721 938429</span></a></li>
-              <li><a href="https://wa.me/447721938429" target="_blank" rel="noopener" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span><strong>WhatsApp Us</strong>07721 938429</span></a></li>
+              <li><a href="https://wa.me/447721938429?text=Hi%20All%20Cleanz%2C%20I%27d%20like%20a%20quote%20please.%20I%27m%20looking%20for%3A%20" target="_blank" rel="noopener" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span><strong>WhatsApp Us</strong>07721 938429</span></a></li>
               <li><a href="mailto:enquiries@allcleanznorthwest.co.uk" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-mail"/></svg></span><span><strong>Email</strong><span class="break">enquiries@allcleanznorthwest.co.uk</span></span></a></li>
               <li><a href="https://www.facebook.com/AllcleanzNW" target="_blank" rel="noopener" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-facebook"/></svg></span><span><strong>Facebook</strong>@AllcleanzNW</span></a></li>
               <li><a href="https://www.instagram.com/allcleanz/" target="_blank" rel="noopener" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-instagram"/></svg></span><span><strong>Instagram</strong>@allcleanz</span></a></li>
             </ul>
         </div>
 
-        <!-- Demo form: validates and confirms in the browser but is not connected to any inbox yet -->
-        <form class="contact-form reveal" id="contact-form" data-demo novalidate>
-          <h3 class="contact-form__title">Send us a message</h3>
-          <div class="field-row">
-            <div class="field">
-              <label for="cf-name">Name</label>
-              <input id="cf-name" name="name" type="text" autocomplete="name" required>
+        <!-- Demo quote form: steps through the enquiry and confirms in the browser, but is not connected to an inbox yet.
+             The WhatsApp button on the confirmation screen does send the details. -->
+        <form class="contact-form quote reveal" id="quote-form" novalidate>
+          <div class="quote__head">
+            <h3 class="contact-form__title">Request a quote</h3>
+            <p class="quote__count" aria-live="polite">Step <span data-step-num>1</span> of <span data-step-total>4</span></p>
+          </div>
+          <div class="quote__bar" aria-hidden="true"><span></span></div>
+
+          <fieldset class="quote__step" data-step="service">
+            <legend class="quote__q">What do you need?</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="service" value="End of Tenancy"><span>End of Tenancy</span></label>
+              <label class="choice"><input type="radio" name="service" value="Deep Cleaning"><span>Deep Cleaning</span></label>
+              <label class="choice"><input type="radio" name="service" value="Domestic Cleaning"><span>Domestic Cleaning</span></label>
+              <label class="choice"><input type="radio" name="service" value="Carpet &amp; Upholstery Cleaning"><span>Carpet &amp; Upholstery</span></label>
+              <label class="choice"><input type="radio" name="service" value="Office Cleaning"><span>Office Cleaning</span></label>
+              <label class="choice"><input type="radio" name="service" value="Oven Cleaning"><span>Oven Cleaning</span></label>
+              <label class="choice choice--wide"><input type="radio" name="service" value="Something else"><span>Something else</span></label>
+            </div>
+            <p class="quote__error" role="alert" hidden>Please choose a service.</p>
+          </fieldset>
+
+          <fieldset class="quote__step" data-step="property" hidden>
+            <legend class="quote__q">Tell us about the property</legend>
+            <p class="quote__sub" id="q-type-label">Type of property</p>
+            <div class="choices" role="radiogroup" aria-labelledby="q-type-label">
+              <label class="choice"><input type="radio" name="property" value="Home"><span>Home</span></label>
+              <label class="choice"><input type="radio" name="property" value="Business premises"><span>Business premises</span></label>
+            </div>
+            <div class="quote__size" data-size-for="Home" hidden>
+              <p class="quote__sub" id="q-home-label">Size</p>
+              <div class="choices" role="radiogroup" aria-labelledby="q-home-label">
+                <label class="choice"><input type="radio" name="size_home" value="1 to 2 bedrooms"><span>1 to 2 bedrooms</span></label>
+                <label class="choice"><input type="radio" name="size_home" value="3 bedrooms"><span>3 bedrooms</span></label>
+                <label class="choice"><input type="radio" name="size_home" value="4 bedrooms"><span>4 bedrooms</span></label>
+                <label class="choice"><input type="radio" name="size_home" value="5 or more bedrooms"><span>5 or more bedrooms</span></label>
+              </div>
+            </div>
+            <div class="quote__size" data-size-for="Business premises" hidden>
+              <p class="quote__sub" id="q-biz-label">Size</p>
+              <div class="choices" role="radiogroup" aria-labelledby="q-biz-label">
+                <label class="choice"><input type="radio" name="size_business" value="Small premises"><span>Small</span></label>
+                <label class="choice"><input type="radio" name="size_business" value="Medium premises"><span>Medium</span></label>
+                <label class="choice choice--wide"><input type="radio" name="size_business" value="Large premises"><span>Large</span></label>
+              </div>
+            </div>
+            <p class="quote__error" role="alert" hidden>Please choose the property type and size.</p>
+          </fieldset>
+
+          <fieldset class="quote__step" data-step="frequency" hidden>
+            <legend class="quote__q">How often would you like a clean?</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="frequency" value="One off"><span>One off</span></label>
+              <label class="choice"><input type="radio" name="frequency" value="Daily"><span>Daily</span></label>
+              <label class="choice"><input type="radio" name="frequency" value="Weekly"><span>Weekly</span></label>
+              <label class="choice"><input type="radio" name="frequency" value="Monthly"><span>Monthly</span></label>
+              <label class="choice choice--wide"><input type="radio" name="frequency" value="Not sure yet"><span>Not sure yet</span></label>
+            </div>
+            <p class="quote__error" role="alert" hidden>Please choose an option.</p>
+          </fieldset>
+
+          <fieldset class="quote__step" data-step="details" hidden>
+            <legend class="quote__q">Your details</legend>
+            <div class="field-row">
+              <div class="field">
+                <label for="q-name">Name</label>
+                <input id="q-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="q-email">Email</label>
+                <input id="q-email" name="email" type="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="q-phone">Phone <span class="field__optional">(optional)</span></label>
+                <input id="q-phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+              <div class="field">
+                <label for="q-area">Town or postcode <span class="field__optional">(optional)</span></label>
+                <input id="q-area" name="area" type="text" autocomplete="postal-code">
+              </div>
             </div>
             <div class="field">
-              <label for="cf-email">Email</label>
-              <input id="cf-email" name="email" type="email" autocomplete="email" required>
+              <label for="q-message">Anything else we should know? <span class="field__optional">(optional)</span></label>
+              <textarea id="q-message" name="message" rows="4"></textarea>
             </div>
+          </fieldset>
+
+          <div class="quote__nav">
+            <button type="button" class="btn btn--outline quote__back" hidden><svg class="ico quote__back-ico"><use href="#i-arrow"/></svg> Back</button>
+            <button type="button" class="btn btn--primary quote__next">Next <svg class="ico"><use href="#i-arrow"/></svg></button>
+            <button type="submit" class="btn btn--primary quote__submit" hidden>Submit</button>
           </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="cf-phone">Phone <span class="field__optional">(optional)</span></label>
-              <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
-            </div>
-            <div class="field">
-              <label for="cf-service">Service <span class="field__optional">(optional)</span></label>
-              <select id="cf-service" name="service">
-                <option value="">Choose a service</option>
-                <option>End of Tenancy</option>
-                <option>Deep Cleaning</option>
-                <option>Domestic Cleaning</option>
-                <option>Carpet &amp; Upholstery Cleaning</option>
-                <option>Office Cleaning</option>
-                <option>Oven Cleaning</option>
-                <option>Something else</option>
-              </select>
-            </div>
+
+          <div class="quote__done" hidden tabindex="-1">
+            <h3 class="quote__done-title">Thanks for submitting!</h3>
+            <p>Here&rsquo;s a summary of your request:</p>
+            <dl class="quote__summary"></dl>
+            <a class="btn btn--whatsapp quote__wa" href="https://wa.me/447721938429" target="_blank" rel="noopener"><svg class="ico"><use href="#i-whatsapp"/></svg> Send these details on WhatsApp</a>
+            <button type="button" class="quote__restart">Start a new quote</button>
           </div>
-          <div class="field">
-            <label for="cf-subject">Subject</label>
-            <input id="cf-subject" name="subject" type="text">
-          </div>
-          <div class="field">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--lg contact-form__submit">Submit</button>
-          <p class="contact-form__status" role="status" aria-live="polite" hidden>Thanks for submitting!</p>
         </form>
       </div>
     </section>
@@ -516,11 +588,11 @@
   <!-- Mobile sticky action bar -->
   <div class="mobile-bar" role="navigation" aria-label="Quick contact">
     <a href="tel:+447721938429"><svg class="ico"><use href="#i-phone"/></svg> Call</a>
-    <a href="https://wa.me/447721938429" target="_blank" rel="noopener" class="mobile-bar__wa"><svg class="ico"><use href="#i-whatsapp"/></svg> WhatsApp</a>
+    <a href="https://wa.me/447721938429?text=Hi%20All%20Cleanz%2C%20I%27d%20like%20a%20quote%20please.%20I%27m%20looking%20for%3A%20" target="_blank" rel="noopener" class="mobile-bar__wa"><svg class="ico"><use href="#i-whatsapp"/></svg> WhatsApp</a>
     <a href="mailto:enquiries@allcleanznorthwest.co.uk"><svg class="ico"><use href="#i-mail"/></svg> Email</a>
   </div>
 
-  <script src="assets/js/gate.js?v=20261024-5" defer></script>
-  <script src="assets/js/main.js?v=20261024-5" defer></script>
+  <script src="assets/js/gate.js?v=20261024-8" defer></script>
+  <script src="assets/js/main.js?v=20261024-8" defer></script>
 </body>
 </html>
