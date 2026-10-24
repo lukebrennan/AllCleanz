@@ -702,18 +702,18 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
 @media (max-width: 760px) {
   .mobile-bar {
     position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 90;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
+    display: flex; gap: 4px;
     padding: 6px; border-radius: 18px;
     background: var(--forest); box-shadow: 0 16px 40px -10px rgba(10, 42, 33, .7);
     padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px));
   }
   .mobile-bar a {
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    padding: 12px 6px; border-radius: 13px;
+    flex: 1 1 auto; display: flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 12px 10px; border-radius: 13px; white-space: nowrap;
     color: var(--white); text-decoration: none;
     font-family: var(--font-display); font-weight: 700; font-size: .92rem;
   }
-  .mobile-bar a:first-child { background: var(--green); }
+  .mobile-bar__quote { flex-grow: 1.4; background: var(--green); }
   .mobile-bar__wa .ico { color: #5fe08f; }
   body { padding-bottom: 84px; }
 }
@@ -778,6 +778,7 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
 }
 
 @media (max-width: 420px) {
+  .mobile-bar a { padding-inline: 6px; font-size: .86rem; gap: 5px; }
   .why-grid { grid-template-columns: 1fr; }
   .texatherm__ctas .btn { flex: 1 1 100%; }
 }
