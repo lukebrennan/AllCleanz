@@ -596,6 +596,8 @@ body.nav-open .header::before { background: var(--white); }
   .testimonial-grid { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
   .testimonial--feature, .testimonial--feature.reveal.is-visible { transform: none; }
   .topbar__email { display: none !important; }
+  /* The quote would cover the photo's subject once the hero stacks; it is repeated in Testimonials */
+  .hero__review { display: none; }
 }
 
 @media (max-width: 760px) {
@@ -613,8 +615,6 @@ body.nav-open .header::before { background: var(--white); }
   .dry-badge__num { font-size: 2.6rem; }
   .dry-badge__unit { font-size: .74rem; }
   .dry-badge__foot { margin-top: 4px; }
-  .hero__review { top: 14px; max-width: 200px; padding: 12px 14px 10px; }
-  .hero__review blockquote { font-size: .88rem; }
   .ticker { margin-top: -24px; }
   .ticker span { font-size: 1rem; }
   .service-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }

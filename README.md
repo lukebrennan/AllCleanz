@@ -27,9 +27,10 @@ robots.txt, sitemap.xml, site.webmanifest
 
 All copy, services, claims and testimonials are taken from the existing allcleanz.co.uk site. Nothing has been invented.
 
-Photos: service cards use the photos from the current site. Two stock photos come from Unsplash (free for commercial use under the Unsplash License):
+Photos: service cards use the photos from the current site. Three stock photos come from Unsplash (free for commercial use under the Unsplash License):
 
-- Hero, `assets/img/hero-upholstery-cleaning*.webp`: Giorgio Trovato, https://unsplash.com/photos/5TXz228u4eo
+- Hero, `assets/img/hero-home-cleaning*.webp`: Vitaly Gariev, https://unsplash.com/photos/2NcTLdFHpH8
+- Hero inset, `assets/img/cleaning-supplies.webp`: Giorgio Trovato, https://unsplash.com/photos/XxAy813D66I
 - About, `assets/img/about-cleaning.webp`: Vitaly Gariev, https://unsplash.com/photos/ViXT4S89hS0
 
 ## SEO
