@@ -463,7 +463,7 @@ body.nav-open .header::before { background: var(--white); }
 .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .why-card {
   position: relative; padding: 30px 26px;
-  border: 1px solid var(--line); border-top: 4px solid var(--green); border-radius: var(--radius);
+  border: 1px solid var(--line); border-radius: var(--radius);
   background: var(--white);
   transition: transform .3s, box-shadow .3s, border-color .3s;
 }
@@ -478,7 +478,7 @@ body.nav-open .header::before { background: var(--white); }
 .client {
   display: flex; align-items: center; gap: 22px;
   padding: 18px 24px; border-radius: var(--radius);
-  background: var(--white); border-left: 5px solid var(--green); box-shadow: var(--shadow-sm);
+  background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
 }
 .client__logo { flex: none; display: grid; place-items: center; width: 132px; height: 72px; }
 .client__logo img { max-width: 100%; max-height: 72px; width: auto; }
