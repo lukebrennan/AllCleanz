@@ -482,7 +482,12 @@ body.nav-open .header::before { background: var(--white); }
 }
 .client__logo { flex: none; display: grid; place-items: center; width: 132px; height: 72px; }
 .client__logo img { max-width: 100%; max-height: 72px; width: auto; }
-.client__name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--ink); line-height: 1.3; }
+.client__name { flex: 1; font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--ink); line-height: 1.3; }
+a.client { text-decoration: none; transition: transform .25s, box-shadow .25s, border-color .25s; }
+a.client:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--mint-2); }
+.client__go { width: 20px; height: 20px; color: var(--green-600); opacity: 0; transform: translateX(-6px); transition: opacity .25s, transform .25s; }
+a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; transform: none; }
+@media (hover: none) { .client__go { opacity: 1; transform: none; } }
 
 /* ---------- Testimonials ---------- */
 .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
