@@ -371,7 +371,7 @@ body.nav-open .header::before { background: var(--white); }
   border-radius: var(--radius-lg); background: var(--mint-2);
 }
 .about__stamp {
-  position: absolute; right: -18px; bottom: 34px; max-width: 250px; margin: 0;
+  position: absolute; left: -18px; bottom: 34px; max-width: 250px; margin: 0;
   padding: 18px 22px; border-radius: var(--radius);
   background: var(--green); color: var(--white); box-shadow: var(--shadow-lg);
   font-family: var(--font-display); font-weight: 800; font-style: italic; text-transform: uppercase;
@@ -660,7 +660,7 @@ body.nav-open .header::before { background: var(--white); }
   .service-card__title { left: 12px; right: 12px; bottom: 12px; font-size: .95rem; }
   .service-card__go { display: none; }
   .about__media::before { inset: 14px -10px -14px 14px; }
-  .about__stamp { right: -6px; bottom: -22px; max-width: 220px; padding: 14px 16px; font-size: .95rem; }
+  .about__stamp { left: -6px; bottom: -22px; max-width: 220px; padding: 14px 16px; font-size: .95rem; }
   .about__copy { margin-top: 12px; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
   .client { gap: 16px; padding: 16px 18px; }
