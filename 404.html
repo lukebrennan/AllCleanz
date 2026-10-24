@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
     // 404s can be served at any depth, so pin relative links to the site root
-    // (GitHub Pages serves this repo under /allcleanz/, Netlify at /)
+    // (GitHub Pages serves this repo under /<repo-name>/, Netlify at /)
     (function () {
       var b = document.createElement('base');
-      b.href = location.hostname.slice(-10) === 'github.io' ? '/allcleanz/' : '/';
+      b.href = location.hostname.slice(-10) === 'github.io' ? '/' + location.pathname.split('/')[1] + '/' : '/';
       document.head.appendChild(b);
     })();
   </script>
