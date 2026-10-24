@@ -389,9 +389,9 @@
       </div>
     </section>
 
-    <!-- CONTACT CTA -->
+    <!-- CONTACT -->
     <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="container">
+      <div class="container contact__grid">
         <div class="contact__card reveal">
           <div class="contact__bg" aria-hidden="true">
             <img src="assets/img/mark-white.png" alt="" width="333" height="246" loading="lazy">
@@ -400,14 +400,58 @@
             <h2 id="contact-title" class="section-title section-title--light">Get in touch</h2>
             <p>Questions, comments or requests? Feel free to reach out, we&rsquo;d love to hear from you.</p>
           </div>
-          <ul class="contact__options">
-            <li><a href="tel:+447721938429" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-phone"/></svg></span><span><strong>Call Us</strong>07721 938429</span></a></li>
-            <li><a href="https://wa.me/447721938429" target="_blank" rel="noopener" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span><strong>WhatsApp Us</strong>07721 938429</span></a></li>
-            <li><a href="mailto:enquiries@allcleanznorthwest.co.uk" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-mail"/></svg></span><span><strong>Email</strong><span class="break">enquiries@allcleanznorthwest.co.uk</span></span></a></li>
-            <li><a href="https://www.facebook.com/AllcleanzNW" target="_blank" rel="noopener" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-facebook"/></svg></span><span><strong>Facebook</strong>@AllcleanzNW</span></a></li>
-            <li><a href="https://www.instagram.com/allcleanz/" target="_blank" rel="noopener" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-instagram"/></svg></span><span><strong>Instagram</strong>@allcleanz</span></a></li>
-          </ul>
+            <ul class="contact__options">
+              <li><a href="tel:+447721938429" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-phone"/></svg></span><span><strong>Call Us</strong>07721 938429</span></a></li>
+              <li><a href="https://wa.me/447721938429" target="_blank" rel="noopener" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-whatsapp"/></svg></span><span><strong>WhatsApp Us</strong>07721 938429</span></a></li>
+              <li><a href="mailto:enquiries@allcleanznorthwest.co.uk" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-mail"/></svg></span><span><strong>Email</strong><span class="break">enquiries@allcleanznorthwest.co.uk</span></span></a></li>
+              <li><a href="https://www.facebook.com/AllcleanzNW" target="_blank" rel="noopener" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-facebook"/></svg></span><span><strong>Facebook</strong>@AllcleanzNW</span></a></li>
+              <li><a href="https://www.instagram.com/allcleanz/" target="_blank" rel="noopener" class="contact-opt"><span class="contact-opt__icon"><svg class="ico"><use href="#i-instagram"/></svg></span><span><strong>Instagram</strong>@allcleanz</span></a></li>
+            </ul>
         </div>
+
+        <!-- Demo form: validates and confirms in the browser but is not connected to any inbox yet -->
+        <form class="contact-form reveal" id="contact-form" data-demo novalidate>
+          <h3 class="contact-form__title">Send us a message</h3>
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="cf-phone">Phone <span class="field__optional">(optional)</span></label>
+              <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="cf-service">Service <span class="field__optional">(optional)</span></label>
+              <select id="cf-service" name="service">
+                <option value="">Choose a service</option>
+                <option>End of Tenancy</option>
+                <option>Deep Cleaning</option>
+                <option>Domestic Cleaning</option>
+                <option>Carpet &amp; Upholstery Cleaning</option>
+                <option>Office Cleaning</option>
+                <option>Oven Cleaning</option>
+                <option>Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-subject">Subject</label>
+            <input id="cf-subject" name="subject" type="text">
+          </div>
+          <div class="field">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg contact-form__submit">Submit</button>
+          <p class="contact-form__status" role="status" aria-live="polite" hidden>Thanks for submitting!</p>
+        </form>
       </div>
     </section>
   </main>

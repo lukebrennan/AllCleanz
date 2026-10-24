@@ -505,10 +505,11 @@ body.nav-open .header::before { background: var(--white); }
 
 /* ---------- Contact ---------- */
 .contact { padding-top: 0; }
+.contact__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(20px, 3vw, 32px); align-items: stretch; }
 .contact__card {
   position: relative; overflow: hidden; isolation: isolate;
-  display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px, 4vw, 56px); align-items: center;
-  padding: clamp(32px, 5vw, 64px);
+  display: flex; flex-direction: column; gap: 28px;
+  padding: clamp(28px, 4vw, 48px);
   border-radius: var(--radius-lg);
   background: linear-gradient(135deg, #4cc095 0%, var(--green) 45%, var(--green-700) 100%);
   color: rgba(255, 255, 255, .92);
@@ -516,8 +517,7 @@ body.nav-open .header::before { background: var(--white); }
 }
 .contact__bg { position: absolute; right: -60px; bottom: -80px; z-index: -1; width: 420px; opacity: .1; }
 .contact__copy p { font-size: 1.12rem; margin: 0; }
-.contact__options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.contact__options li:nth-child(3) { grid-column: 1 / -1; }
+.contact__options { display: grid; gap: 10px; }
 .contact-opt {
   display: flex; align-items: center; gap: 14px; height: 100%;
   padding: 14px 16px; border-radius: var(--radius);
@@ -533,6 +533,40 @@ body.nav-open .header::before { background: var(--white); }
 .contact-opt__icon .ico { width: 22px; height: 22px; }
 .contact-opt:hover { background: var(--white); color: var(--forest); transform: translateY(-3px); }
 .contact-opt:hover .contact-opt__icon { background: var(--green); color: var(--white); }
+
+.contact-form {
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: var(--radius-lg); border: 1px solid var(--line);
+  background: var(--white); box-shadow: var(--shadow);
+}
+.contact-form__title { font-size: 1.5rem; font-weight: 800; margin-bottom: 22px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.field label { font-family: var(--font-display); font-weight: 600; font-size: .92rem; color: var(--ink); }
+.field__optional { font-family: var(--font-body); font-weight: 400; color: var(--muted); }
+.field input, .field select, .field textarea {
+  width: 100%; padding: 12px 14px;
+  font: inherit; font-size: 1rem; color: var(--ink);
+  background: var(--mint); border: 1px solid var(--line); border-radius: 12px;
+  transition: border-color .2s, box-shadow .2s, background-color .2s;
+}
+.field textarea { resize: vertical; min-height: 130px; }
+.field select {
+  appearance: none; -webkit-appearance: none; padding-right: 40px; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%231f7a57' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; background-size: 16px;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none; background-color: var(--white); border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(67, 178, 136, .2);
+}
+.field.is-invalid input, .field.is-invalid textarea { border-color: #c0392b; background-color: #fdf3f2; }
+.contact-form__submit { width: 100%; margin-top: 4px; }
+.contact-form__status {
+  margin: 16px 0 0; padding: 14px 16px; border-radius: 12px;
+  background: var(--mint); color: var(--green-700);
+  font-family: var(--font-display); font-weight: 700; text-align: center;
+}
 
 /* ---------- Footer ---------- */
 .footer { background: var(--forest-900); color: rgba(255, 255, 255, .72); font-size: .95rem; padding-top: clamp(56px, 7vw, 88px); }
@@ -596,7 +630,7 @@ body.nav-open .header::before { background: var(--white); }
 @media (max-width: 960px) {
   .hero__grid { grid-template-columns: 1fr; }
   .hero__visual { min-height: 0; aspect-ratio: 1 / .82; max-width: 560px; width: 100%; margin-inline: auto; }
-  .about__grid, .texatherm__grid, .clients__grid, .contact__card { grid-template-columns: 1fr; }
+  .about__grid, .texatherm__grid, .clients__grid, .contact__grid { grid-template-columns: 1fr; }
   .about__media { max-width: 620px; }
   .testimonial-grid { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
   .testimonial--feature, .testimonial--feature.reveal.is-visible { transform: none; }
@@ -628,7 +662,7 @@ body.nav-open .header::before { background: var(--white); }
   .about__media::before { inset: 14px -10px -14px 14px; }
   .about__stamp { right: -6px; bottom: -22px; max-width: 220px; padding: 14px 16px; font-size: .95rem; }
   .about__copy { margin-top: 12px; }
-  .contact__options { grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; gap: 0; }
   .client { gap: 16px; padding: 16px 18px; }
   .client__logo { width: 96px; height: 56px; }
   .client__logo img { max-height: 56px; }

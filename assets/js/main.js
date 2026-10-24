@@ -102,6 +102,36 @@
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
+  /* Demo contact form: check required fields and confirm, nothing is sent yet */
+  var form = document.getElementById('contact-form');
+  if (form) {
+    var status = form.querySelector('.contact-form__status');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var firstInvalid = null;
+      form.querySelectorAll('input, select, textarea').forEach(function (el) {
+        var ok = el.checkValidity();
+        el.closest('.field').classList.toggle('is-invalid', !ok);
+        el.setAttribute('aria-invalid', String(!ok));
+        if (!ok && !firstInvalid) firstInvalid = el;
+      });
+      if (firstInvalid) {
+        status.hidden = true;
+        firstInvalid.focus();
+        return;
+      }
+      form.reset();
+      status.hidden = false;
+    });
+    form.addEventListener('input', function (e) {
+      var field = e.target.closest('.field');
+      if (field && field.classList.contains('is-invalid') && e.target.checkValidity()) {
+        field.classList.remove('is-invalid');
+        e.target.setAttribute('aria-invalid', 'false');
+      }
+    });
+  }
+
   /* Footer year */
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
