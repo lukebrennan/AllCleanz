@@ -260,6 +260,14 @@
     show(0, false);
   }
 
+  /* Before and after slider */
+  document.querySelectorAll('.ba').forEach(function (slider) {
+    var range = slider.querySelector('.ba__range');
+    var update = function () { slider.style.setProperty('--pos', range.value + '%'); };
+    range.addEventListener('input', update);
+    update();
+  });
+
   /* Footer year */
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();

@@ -15,5 +15,11 @@
     <image:image>
       <image:loc>https://www.allcleanz.co.uk/assets/img/sofa.webp</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/before-after/oven-before.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/before-after/oven-after.webp</image:loc>
+    </image:image>
   </url>
 </urlset>

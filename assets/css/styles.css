@@ -448,6 +448,45 @@ body.nav-open .header::before { background: var(--white); }
 .services__more { position: relative; text-align: center; margin: 44px 0 0; font-weight: 500; }
 .services__more a { color: var(--green-700); font-weight: 700; }
 
+/* ---------- Before & after ---------- */
+.results__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 6vw, 80px); align-items: center; }
+.results__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.ba {
+  position: relative; overflow: hidden; isolation: isolate;
+  width: 100%; max-width: 520px; justify-self: center; aspect-ratio: 900 / 1088;
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+  user-select: none; -webkit-user-select: none;
+}
+.ba__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.ba__before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba__label {
+  position: absolute; top: 16px; z-index: 2;
+  padding: 6px 12px; border-radius: 8px;
+  background: rgba(10, 42, 33, .78); color: var(--white);
+  font-family: var(--font-display); font-weight: 700; font-size: .85rem; letter-spacing: .04em;
+  pointer-events: none;
+}
+.ba__label--before { left: 16px; }
+.ba__label--after { right: 16px; }
+.ba__handle {
+  position: absolute; top: 0; bottom: 0; left: var(--pos); z-index: 2;
+  width: 3px; margin-left: -1.5px; background: var(--white);
+  box-shadow: 0 0 12px rgba(0, 0, 0, .35); pointer-events: none;
+}
+.ba__knob {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
+  background: var(--white); color: var(--green-700); box-shadow: var(--shadow);
+}
+.ba__knob .ico { width: 24px; height: 24px; }
+.ba__range {
+  position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; margin: 0;
+  opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; background: none;
+}
+.ba__range::-webkit-slider-thumb { -webkit-appearance: none; width: 52px; height: 100%; cursor: ew-resize; }
+.ba__range::-moz-range-thumb { width: 52px; height: 100%; border: 0; cursor: ew-resize; }
+.ba:has(.ba__range:focus-visible) .ba__knob { outline: 3px solid var(--sun); outline-offset: 3px; }
+
 /* ---------- Texatherm ---------- */
 .texatherm {
   overflow: hidden; isolation: isolate;
@@ -694,7 +733,7 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
 @media (max-width: 960px) {
   .hero__grid { grid-template-columns: 1fr; }
   .hero__visual { min-height: 0; aspect-ratio: 1 / .82; max-width: 560px; width: 100%; margin-inline: auto; }
-  .about__grid, .texatherm__grid, .clients__grid, .contact__grid { grid-template-columns: 1fr; }
+  .about__grid, .texatherm__grid, .clients__grid, .contact__grid, .results__grid { grid-template-columns: 1fr; }
   .about__media { max-width: 620px; }
   .testimonial-grid { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
   .testimonial--feature, .testimonial--feature.reveal.is-visible { transform: none; }
@@ -711,6 +750,7 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
   .topbar__inner { justify-content: center; }
   .brand img { height: 38px; }
   .hero__ctas .btn { flex: 1 1 100%; }
+  .results__ctas .btn { flex: 1 1 100%; }
   .hero__photo--main { inset: 0 0 50px 20px; border-width: 4px; }
   .hero__photo--small { border-width: 4px; }
   .dry-badge { width: 116px; height: 116px; right: -4px; border-width: 4px; }

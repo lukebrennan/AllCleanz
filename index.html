@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,600;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/img/hero-home-cleaning.webp" imagesrcset="assets/img/hero-home-cleaning-800.webp 800w, assets/img/hero-home-cleaning.webp 1500w" imagesizes="(max-width: 960px) 100vw, 50vw" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261024-8">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261024-9">
 
   <script type="application/ld+json">
   {
@@ -116,6 +116,7 @@
     <symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
     <symbol id="i-quote" viewBox="0 0 24 24"><path fill="currentColor" d="M9.6 5C5.6 6.4 3 9.6 3 13.8V19h6.6v-6.4H6.4c0-2.6 1.5-4.6 4-5.6L9.6 5Zm11 0c-4 1.4-6.6 4.6-6.6 8.8V19h6.6v-6.4h-3.2c0-2.6 1.5-4.6 4-5.6L20.6 5Z"/></symbol>
     <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9z"/></symbol>
+    <symbol id="i-arrows" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M9 6 3 12l6 6M15 6l6 6-6 6"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></symbol>
   </svg>
 
@@ -294,6 +295,31 @@
         </ul>
 
         <p class="services__more reveal">Would you like more information about a specific service? <a href="https://wa.me/447721938429?text=Hi%20All%20Cleanz%2C%20I%27d%20like%20more%20information%20about%3A%20" target="_blank" rel="noopener">Message us on WhatsApp</a> or <a href="tel:+447721938429">call 07721 938429</a>.</p>
+      </div>
+    </section>
+
+    <!-- BEFORE & AFTER -->
+    <section class="section results" aria-labelledby="results-title">
+      <div class="container results__grid">
+        <div class="results__copy reveal">
+          <h2 id="results-title" class="section-title">See the difference</h2>
+          <p class="lead">A real oven clean by All Cleanz. Drag the slider to compare the before and after.</p>
+          <p>From baked-on grease to a clear glass door and gleaming shelves, we have the experience and skills necessary to tackle just about every type of cleaning job that comes our way.</p>
+          <div class="results__ctas">
+            <a href="https://wa.me/447721938429?text=Hi%20All%20Cleanz%2C%20I%27d%20like%20a%20quote%20for%20an%20oven%20clean%20please." target="_blank" rel="noopener" class="btn btn--primary"><svg class="ico"><use href="#i-whatsapp"/></svg> Book an oven clean</a>
+            <a href="#quote-form" class="btn btn--outline">Request a quote <svg class="ico"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+        <div class="ba reveal" style="--pos: 50%">
+          <img class="ba__img" src="assets/img/before-after/oven-after.webp" alt="Oven after cleaning by All Cleanz, with a clear glass door and clean shelves" width="900" height="1088" loading="lazy">
+          <div class="ba__before">
+            <img class="ba__img" src="assets/img/before-after/oven-before.webp" alt="The same oven before cleaning, with the door glass coated in baked-on grease" width="900" height="1088" loading="lazy">
+          </div>
+          <span class="ba__label ba__label--before" aria-hidden="true">Before</span>
+          <span class="ba__label ba__label--after" aria-hidden="true">After</span>
+          <span class="ba__handle" aria-hidden="true"><span class="ba__knob"><svg class="ico"><use href="#i-arrows"/></svg></span></span>
+          <input class="ba__range" type="range" min="0" max="100" value="50" step="1" aria-label="Before and after comparison. Move to reveal more of the before or after photo">
+        </div>
       </div>
     </section>
 
@@ -592,7 +618,7 @@
     <a href="mailto:enquiries@allcleanznorthwest.co.uk"><svg class="ico"><use href="#i-mail"/></svg> Email</a>
   </div>
 
-  <script src="assets/js/gate.js?v=20261024-8" defer></script>
-  <script src="assets/js/main.js?v=20261024-8" defer></script>
+  <script src="assets/js/gate.js?v=20261024-9" defer></script>
+  <script src="assets/js/main.js?v=20261024-9" defer></script>
 </body>
 </html>
