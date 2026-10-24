@@ -9,7 +9,8 @@ A static site: plain HTML, CSS and JavaScript with no build step.
 | File | Purpose |
 | --- | --- |
 | `index.html` | Landing page: hero with call/WhatsApp CTAs, about, 14 services, Texatherm carpet cleaning, why choose us, clients, testimonials, contact |
-| `under-construction.html` | Target for every other nav link. Reads `?page=<slug>` to show which page was requested. `noindex` |
+| `end-of-tenancy-cleaning.html`, `deep-cleaning.html`, `domestic-cleaning.html`, `carpet-upholstery-cleaning.html`, `office-cleaning.html`, `oven-cleaning.html` | Service pages, linked without `.html` (e.g. `/oven-cleaning`). Copy is from the matching page on the old Wix site. Each has its own title, description, canonical URL and `Service` + `BreadcrumbList` JSON-LD. The header and footer are copied from `index.html`, so change all pages when editing them |
+| `under-construction.html` | Target for the remaining nav links. Reads `?page=<slug>` to show which page was requested. `noindex` |
 | `404.html` | Not found page for static hosts such as GitHub Pages or Netlify |
 
 ## Structure
@@ -40,6 +41,19 @@ Photos: almost all photos are All Cleanz's own, taken from their Facebook page (
 - `llms.txt` summary for AI assistants and search tools
 - `robots.txt` and `sitemap.xml` (with image entries) point at the final domain, www.allcleanz.co.uk
 
+## Launch settings (`netlify.toml`)
+
+Ignored by GitHub Pages, active once the site is on Netlify:
+
+- 301 redirects from all 21 old Wix URLs (e.g. `/end-of-tenancy-1`) to the matching new page or homepage section, so Google rankings carry over. When another service gets its own page, update its redirect
+- Redirect from `allcleanz.co.uk` to `www.allcleanz.co.uk`
+- Long browser caching for CSS, JS and fonts (bump the `?v=` value on every page when `styles.css` or `main.js` changes), 30 days for images
+- Standard security headers
+
+## Lead tracking
+
+`main.js` sends events for phone clicks (`click_call`), WhatsApp clicks (`click_whatsapp`), email clicks (`click_email`) and quote form submissions (`quote_form_submit`), with where on the page the click happened. Nothing is sent until Google Analytics 4 (`gtag`) or Plausible is added to the pages; it then picks them up automatically. GA4 needs a cookie consent banner in the UK; Plausible does not.
+
 ## Hosting
 
 Preview site (GitHub Pages, built from `main`): https://lukebrennan.github.io/AllCleanz/
@@ -62,4 +76,4 @@ This is a deterrent, not real security: the page content is still delivered to t
 python3 -m http.server 8000
 ```
 
-Then open http://localhost:8000.
+Then open http://localhost:8000. The service pages are linked without `.html`, which GitHub Pages and Netlify handle; with this simple server, add `.html` to the address.

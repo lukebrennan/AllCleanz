@@ -1,0 +1,149 @@
+# Netlify settings. Ignored by GitHub Pages; takes effect once the site is hosted on Netlify.
+
+[build]
+  publish = "."
+
+# ---------- Domain: one version only (https://www.) ----------
+[[redirects]]
+  from = "https://allcleanz.co.uk/*"
+  to = "https://www.allcleanz.co.uk/:splat"
+  status = 301
+  force = true
+
+# ---------- Old Wix pages, so existing Google rankings and links carry over ----------
+# Services with their own page
+[[redirects]]
+  from = "/end-of-tenancy-1"
+  to = "/end-of-tenancy-cleaning"
+  status = 301
+
+[[redirects]]
+  from = "/deep-clean-1"
+  to = "/deep-cleaning"
+  status = 301
+
+[[redirects]]
+  from = "/domestic-clean"
+  to = "/domestic-cleaning"
+  status = 301
+
+[[redirects]]
+  from = "/advanced-carpet-upholstery-cleaning"
+  to = "/carpet-upholstery-cleaning"
+  status = 301
+
+[[redirects]]
+  from = "/office-cleaning-1"
+  to = "/office-cleaning"
+  status = 301
+
+[[redirects]]
+  from = "/oven-cleaning-1"
+  to = "/oven-cleaning"
+  status = 301
+
+# Services without their own page yet: point to the services section.
+# When one of these gets a page, change its "to" to the new page.
+[[redirects]]
+  from = "/after-build-clean-1"
+  to = "/#services"
+  status = 301
+
+[[redirects]]
+  from = "/pre-post-party-cleaning-1"
+  to = "/#services"
+  status = 301
+
+[[redirects]]
+  from = "/fridge-cleaning-1"
+  to = "/#services"
+  status = 301
+
+[[redirects]]
+  from = "/window-cleaning-1"
+  to = "/#services"
+  status = 301
+
+[[redirects]]
+  from = "/car-valeting-1"
+  to = "/#services"
+  status = 301
+
+[[redirects]]
+  from = "/jet-washing-1"
+  to = "/#services"
+  status = 301
+
+[[redirects]]
+  from = "/gutter-cleaning-1"
+  to = "/#services"
+  status = 301
+
+[[redirects]]
+  from = "/bbq-cleaning-1"
+  to = "/#services"
+  status = 301
+
+[[redirects]]
+  from = "/services-1"
+  to = "/#services"
+  status = 301
+
+# Other pages
+[[redirects]]
+  from = "/about-1"
+  to = "/#about"
+  status = 301
+
+[[redirects]]
+  from = "/clients"
+  to = "/#clients"
+  status = 301
+
+[[redirects]]
+  from = "/tesimonials"
+  to = "/#testimonials"
+  status = 301
+
+[[redirects]]
+  from = "/contact-us-1"
+  to = "/#contact"
+  status = 301
+
+[[redirects]]
+  from = "/join-the-team"
+  to = "/#contact"
+  status = 301
+
+# ---------- Headers ----------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000"
+
+# CSS and JS are linked with ?v=..., so they can be cached for a year.
+# Bump the ?v= value in every page whenever styles.css or main.js changes.
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Images are not versioned, so keep them for 30 days. Give a replaced photo a new file name.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

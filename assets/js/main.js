@@ -245,6 +245,7 @@
       bar.style.width = '100%';
       done.hidden = false;
       done.focus();
+      trackEvent('quote_form_submit', { service: value('service') });
     });
 
     done.querySelector('.quote__restart').addEventListener('click', function () {
@@ -308,6 +309,30 @@
   });
 
   /* Footer year */
+  /* Lead tracking: sends events to Google Analytics 4 or Plausible once either
+   * is added to the page. Does nothing until then. */
+  function trackEvent(name, props) {
+    try {
+      if (typeof window.gtag === 'function') window.gtag('event', name, props);
+      if (typeof window.plausible === 'function') window.plausible(name, { props: props });
+    } catch (err) { /* analytics must never break the page */ }
+  }
+
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href]');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    var name = /^tel:/.test(href) ? 'click_call'
+      : /wa\.me\//.test(href) ? 'click_whatsapp'
+      : /^mailto:/.test(href) ? 'click_email'
+      : null;
+    if (!name) return;
+    var area = link.closest('.topbar, .header, .mobile-bar, .footer, section, .quote');
+    var where = !area ? 'page'
+      : area.id || area.getAttribute('aria-labelledby') || area.className.split(' ')[0];
+    trackEvent(name, { link_location: where.replace(/-title$/, '') });
+  });
+
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
