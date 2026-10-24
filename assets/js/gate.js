@@ -28,7 +28,7 @@
   gate.setAttribute('aria-labelledby', 'gate-title');
   gate.innerHTML =
     '<form class="gate__card" novalidate>' +
-      '<img class="gate__logo" src="assets/img/logo-horizontal-dark.png" alt="All Cleanz" width="797" height="200">' +
+      '<img class="gate__logo" src="assets/img/logo-header.webp" alt="All Cleanz" width="424" height="106">' +
       '<h1 id="gate-title" class="gate__title">Website preview</h1>' +
       '<p class="gate__text">This new website is a private preview. Enter the passcode to take a look.</p>' +
       '<label class="gate__label" for="gate-pass">Passcode</label>' +

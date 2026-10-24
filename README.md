@@ -34,6 +34,7 @@ Photos: almost all photos are All Cleanz's own, taken from their Facebook page (
 - Title and meta description targeting "cleaning company Merseyside / North West"
 - `WebSite` and `HouseCleaningService` JSON-LD with phone, email, area served and services
 - Open Graph tags, canonical URL, sitemap and robots.txt
+- Fonts (Inter and Poppins, Latin subset) are self-hosted in `assets/fonts/` and the hero fonts are preloaded, so no third-party requests block rendering
 - Semantic headings (single H1), descriptive image alt text, lazy-loaded below the fold images, WebP images
 - 1200x630 social sharing image (`assets/img/og-image.jpg`)
 - `llms.txt` summary for AI assistants and search tools
