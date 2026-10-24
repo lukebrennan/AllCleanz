@@ -569,6 +569,40 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
 .testimonial--feature blockquote,
 .testimonial--feature figcaption { color: var(--white); }
 
+/* ---------- Recent work strip ---------- */
+.recent { padding-block: 0 clamp(56px, 7vw, 88px); }
+.recent__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 18px; }
+.recent__title { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); font-weight: 800; }
+.recent__follow { margin: 0; color: var(--text); }
+.recent__follow a { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; color: var(--green-700); text-decoration: none; }
+.recent__follow a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.recent__follow .ico { width: 1em; height: 1em; }
+.recent__strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.recent__tile { position: relative; display: block; overflow: hidden; aspect-ratio: 1; border-radius: var(--radius); background: var(--mint); }
+.recent__tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.recent__icon {
+  position: absolute; right: 10px; bottom: 10px;
+  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255, 255, 255, .92); color: var(--green-700);
+  opacity: 0; transform: translateY(4px); transition: opacity .25s, transform .25s;
+}
+.recent__icon .ico { width: 16px; height: 16px; }
+.recent__tile:hover img { transform: scale(1.06); }
+.recent__tile:hover .recent__icon, .recent__tile:focus-visible .recent__icon { opacity: 1; transform: none; }
+@media (max-width: 960px) {
+  /* One swipeable row on smaller screens */
+  .recent__strip {
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 38%;
+    overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    margin-inline: calc(var(--gutter) * -1); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .recent__strip::-webkit-scrollbar { display: none; }
+  .recent__strip li { scroll-snap-align: start; }
+  .recent__icon { opacity: 1; transform: none; }
+}
+@media (max-width: 520px) { .recent__strip { grid-auto-columns: 44%; } }
+
 /* ---------- Contact ---------- */
 .contact { padding-top: 0; }
 .contact__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(20px, 3vw, 32px); align-items: stretch; }

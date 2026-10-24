@@ -31,6 +31,7 @@ Photos: service cards use the photos from the current site. Three stock photos c
 
 - Hero, `assets/img/hero-home-cleaning*.webp`: PuroClean of Fort Worth, https://unsplash.com/photos/-dc38HdQR1M
 - Before and after, `assets/img/before-after/`: All Cleanz's own photos from their Facebook page, aligned and cropped to match
+- Recent work strip, `assets/img/recent/`: All Cleanz's own photos from their Facebook page; each tile links to the original post. Update by swapping the images and links in the RECENT WORK section of `index.html`
 - Hero inset, `assets/img/cleaning-supplies.webp`: Giorgio Trovato, https://unsplash.com/photos/XxAy813D66I
 - About, `assets/img/about-surface-cleaning.webp`: Towfiqu barbhuiya, https://unsplash.com/photos/ho-p7qLBewk
 
