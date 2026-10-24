@@ -49,6 +49,12 @@ Preview site (GitHub Pages, built from `main`): https://lukebrennan.github.io/Al
 
 The production host (Netlify, `allcleanz.netlify.app`) is paused until launch.
 
+## Preview passcode
+
+While the site is in preview, every page shows a branded passcode screen (`assets/js/gate.js`, plus a one-line script at the top of each page's `<head>`). The passcode is not case sensitive. Once entered, the browser remembers it.
+
+This is a deterrent, not real security: the page content is still delivered to the browser and the repository is public. Remove the gate before launch.
+
 ## Run locally
 
 ```

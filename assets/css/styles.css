@@ -721,3 +721,36 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
 .uc__back { display: inline-flex; align-items: center; gap: .5em; margin-top: 28px; color: var(--white); font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(255, 255, 255, .45); }
 .uc__back .ico { transform: rotate(180deg); }
 @media (max-width: 760px) { .uc__ctas .btn { flex: 1 1 100%; } }
+
+/* ---------- Preview passcode screen (remove at launch) ---------- */
+html.gate-locked body { overflow: hidden; }
+html.gate-locked body > :not(.gate) { display: none !important; }
+.gate {
+  position: fixed; inset: 0; z-index: 1000;
+  display: grid; place-items: center; padding: 20px;
+  overflow-y: auto;
+  background:
+    radial-gradient(900px 500px at 80% 0%, rgba(255, 255, 255, .18), transparent 60%),
+    linear-gradient(150deg, #4cc095 0%, var(--green) 45%, var(--green-700) 100%);
+}
+.gate__card {
+  width: 100%; max-width: 420px;
+  padding: clamp(28px, 6vw, 44px);
+  border-radius: var(--radius-lg);
+  background: var(--white); box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+.gate__logo { width: 210px; height: auto; margin: 0 auto 26px; }
+.gate__title { font-size: 1.6rem; font-weight: 800; margin-bottom: 10px; }
+.gate__text { color: var(--text); margin-bottom: 24px; }
+.gate__label { display: block; text-align: left; margin-bottom: 6px; font-family: var(--font-display); font-weight: 600; font-size: .92rem; color: var(--ink); }
+.gate__input {
+  width: 100%; padding: 13px 14px;
+  font: inherit; font-size: 1rem; color: var(--ink);
+  background: var(--mint); border: 1px solid var(--line); border-radius: 12px;
+  transition: border-color .2s, box-shadow .2s, background-color .2s;
+}
+.gate__input:focus { outline: none; background: var(--white); border-color: var(--green); box-shadow: 0 0 0 4px rgba(67, 178, 136, .2); }
+.gate__input[aria-invalid="true"] { border-color: #c0392b; background: #fdf3f2; }
+.gate__error { margin: 10px 0 0; text-align: left; font-size: .92rem; color: #b03a2e; }
+.gate__submit { width: 100%; margin-top: 18px; }

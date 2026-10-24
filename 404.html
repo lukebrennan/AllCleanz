@@ -2,6 +2,8 @@
 <html lang="en-GB" class="no-js">
 <head>
   <meta charset="utf-8">
+  <!-- Preview passcode screen (remove at launch, along with assets/js/gate.js) -->
+  <script>try{if(localStorage.getItem('allcleanz-preview')!=='1')document.documentElement.classList.add('gate-locked')}catch(e){document.documentElement.classList.add('gate-locked')}</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
     // 404s can be served at any depth, so pin relative links to the site root
@@ -22,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,600;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261024-4">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261024-5">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -178,6 +180,7 @@
     <a href="mailto:enquiries@allcleanznorthwest.co.uk"><svg class="ico"><use href="#i-mail"/></svg> Email</a>
   </div>
 
-  <script src="assets/js/main.js?v=20261024-4" defer></script>
+  <script src="assets/js/gate.js?v=20261024-5" defer></script>
+  <script src="assets/js/main.js?v=20261024-5" defer></script>
 </body>
 </html>
