@@ -456,6 +456,8 @@ body.nav-open .header::before { background: var(--white); }
   width: 100%; max-width: 520px; justify-self: center; aspect-ratio: 900 / 1088;
   border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
   user-select: none; -webkit-user-select: none;
+  /* Horizontal drags move the slider; vertical swipes still scroll the page */
+  touch-action: pan-y; cursor: ew-resize;
 }
 .ba__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 .ba__before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
@@ -481,10 +483,9 @@ body.nav-open .header::before { background: var(--white); }
 .ba__knob .ico { width: 24px; height: 24px; }
 .ba__range {
   position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; margin: 0;
-  opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; background: none;
+  opacity: 0; -webkit-appearance: none; appearance: none; background: none;
+  pointer-events: none;
 }
-.ba__range::-webkit-slider-thumb { -webkit-appearance: none; width: 52px; height: 100%; cursor: ew-resize; }
-.ba__range::-moz-range-thumb { width: 52px; height: 100%; border: 0; cursor: ew-resize; }
 .ba:has(.ba__range:focus-visible) .ba__knob { outline: 3px solid var(--sun); outline-offset: 3px; }
 
 /* ---------- Texatherm ---------- */

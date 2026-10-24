@@ -263,9 +263,48 @@
   /* Before and after slider */
   document.querySelectorAll('.ba').forEach(function (slider) {
     var range = slider.querySelector('.ba__range');
-    var update = function () { slider.style.setProperty('--pos', range.value + '%'); };
-    range.addEventListener('input', update);
-    update();
+    var setPos = function (pct) {
+      pct = Math.min(100, Math.max(0, pct));
+      slider.style.setProperty('--pos', pct + '%');
+      range.value = Math.round(pct);
+    };
+    var fromPointer = function (e) {
+      var rect = slider.getBoundingClientRect();
+      setPos((e.clientX - rect.left) / rect.width * 100);
+    };
+
+    // The range input is kept for keyboard users; pointers (mouse, finger, pen) drive
+    // the slider directly, because touch browsers only let you drag a range by its thumb
+    var pointer = null; // { id, x, y, sliding }
+    slider.addEventListener('pointerdown', function (e) {
+      pointer = { id: e.pointerId, x: e.clientX, y: e.clientY, sliding: e.pointerType === 'mouse' };
+      if (pointer.sliding) {
+        slider.setPointerCapture(e.pointerId);
+        fromPointer(e);
+      }
+    });
+    slider.addEventListener('pointermove', function (e) {
+      if (!pointer || e.pointerId !== pointer.id) return;
+      if (!pointer.sliding) {
+        // A finger only takes over once it is clearly moving sideways; vertical swipes scroll the page
+        var dx = Math.abs(e.clientX - pointer.x);
+        var dy = Math.abs(e.clientY - pointer.y);
+        if (dy > dx && dy > 6) { pointer = null; return; }
+        if (dx < 6) return;
+        pointer.sliding = true;
+        slider.setPointerCapture(e.pointerId);
+      }
+      fromPointer(e);
+    });
+    slider.addEventListener('pointerup', function (e) {
+      // A tap (no real movement) jumps the slider to that spot
+      if (pointer && !pointer.sliding && Math.abs(e.clientX - pointer.x) < 6 && Math.abs(e.clientY - pointer.y) < 6) fromPointer(e);
+      pointer = null;
+    });
+    slider.addEventListener('pointercancel', function () { pointer = null; });
+
+    range.addEventListener('input', function () { setPos(Number(range.value)); });
+    setPos(Number(range.value));
   });
 
   /* Footer year */
