@@ -25,14 +25,22 @@ robots.txt, sitemap.xml, site.webmanifest
 
 ## Content
 
-All copy, services, claims and testimonials are taken from the existing allcleanz.co.uk site. Nothing has been invented. Photos are the ones already used on the current site.
+All copy, services, claims and testimonials are taken from the existing allcleanz.co.uk site. Nothing has been invented.
+
+Photos: service cards use the photos from the current site. Two stock photos come from Unsplash (free for commercial use under the Unsplash License):
+
+- Hero, `assets/img/hero-upholstery-cleaning*.webp`: Giorgio Trovato, https://unsplash.com/photos/5TXz228u4eo
+- About, `assets/img/about-cleaning.webp`: Vitaly Gariev, https://unsplash.com/photos/ViXT4S89hS0
 
 ## SEO
 
-- Unique title and meta description targeting "domestic and commercial cleaning Prescot / Merseyside"
-- `HouseCleaningService` JSON-LD with phone, email, area served, services and reviews
+- Title and meta description targeting "cleaning company Prescot / Merseyside"
+- `WebSite` and `HouseCleaningService` JSON-LD with phone, email, area served and services
 - Open Graph tags, canonical URL, sitemap and robots.txt
 - Semantic headings (single H1), descriptive image alt text, lazy-loaded below the fold images, WebP images
+- 1200x630 social sharing image (`assets/img/og-image.jpg`)
+- `llms.txt` summary for AI assistants and search tools
+- `robots.txt` and `sitemap.xml` (with image entries) point at the final domain, www.allcleanz.co.uk
 
 ## Hosting
 
