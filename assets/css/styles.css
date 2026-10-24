@@ -717,6 +717,7 @@ body.nav-open .header::before { background: var(--white); }
 }
 .uc p { font-size: 1.15rem; color: rgba(255, 255, 255, .94); }
 .uc__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 30px; }
+.uc__page[hidden] { display: none; }
 .uc__back { display: inline-flex; align-items: center; gap: .5em; margin-top: 28px; color: var(--white); font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(255, 255, 255, .45); }
 .uc__back .ico { transform: rotate(180deg); }
 @media (max-width: 760px) { .uc__ctas .btn { flex: 1 1 100%; } }
