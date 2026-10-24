@@ -3,17 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // 404s can be served at any depth, so pin relative links to the site root
+    // (GitHub Pages serves this repo under /allcleanz/, Netlify at /)
+    (function () {
+      var b = document.createElement('base');
+      b.href = location.hostname.slice(-10) === 'github.io' ? '/allcleanz/' : '/';
+      document.head.appendChild(b);
+    })();
+  </script>
   <title>Page Not Found | All Cleanz</title>
   <meta name="description" content="This page of the All Cleanz website is being refreshed. Call or WhatsApp 07721 938429 or email enquiries@allcleanznorthwest.co.uk.">
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#43B288">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,600;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -49,8 +58,8 @@
   <!-- Header / navigation -->
   <header class="header" id="top">
     <div class="container header__inner">
-      <a href="/" class="brand" aria-label="All Cleanz home">
-        <img src="/assets/img/logo-horizontal-dark.png" alt="All Cleanz" width="797" height="200">
+      <a href="./" class="brand" aria-label="All Cleanz home">
+        <img src="assets/img/logo-horizontal-dark.png" alt="All Cleanz" width="797" height="200">
       </a>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
@@ -59,32 +68,32 @@
 
       <nav class="nav" id="site-nav" aria-label="Main">
         <ul class="nav__list">
-          <li><a href="/">Home</a></li>
-          <li><a href="/under-construction.html?page=about">About</a></li>
+          <li><a href="./">Home</a></li>
+          <li><a href="under-construction.html?page=about">About</a></li>
           <li class="has-dropdown">
-            <a href="/under-construction.html?page=services" class="nav__parent">Services</a>
+            <a href="under-construction.html?page=services" class="nav__parent">Services</a>
             <button class="dropdown-toggle" aria-expanded="false" aria-label="Show services"><svg class="ico"><use href="#i-chevron"/></svg></button>
             <ul class="dropdown">
-              <li><a href="/under-construction.html?page=end-of-tenancy">End of Tenancy</a></li>
-              <li><a href="/under-construction.html?page=deep-clean">Deep Clean</a></li>
-              <li><a href="/under-construction.html?page=domestic-clean">Domestic Clean</a></li>
-              <li><a href="/under-construction.html?page=carpet-upholstery">Advanced Carpet &amp; Upholstery Cleaning</a></li>
-              <li><a href="/under-construction.html?page=office-cleaning">Office Cleaning</a></li>
-              <li><a href="/under-construction.html?page=after-build-clean">After Build Clean</a></li>
-              <li><a href="/under-construction.html?page=party-cleaning">Pre &amp; Post Party Cleaning</a></li>
-              <li><a href="/under-construction.html?page=oven-cleaning">Oven Cleaning</a></li>
-              <li><a href="/under-construction.html?page=fridge-cleaning">Fridge Cleaning</a></li>
-              <li><a href="/under-construction.html?page=window-cleaning">Window Cleaning</a></li>
-              <li><a href="/under-construction.html?page=bbq-cleaning">BBQ Cleaning</a></li>
-              <li><a href="/under-construction.html?page=jet-washing">Jet Washing</a></li>
-              <li><a href="/under-construction.html?page=gutter-cleaning">Gutter Cleaning</a></li>
-              <li><a href="/under-construction.html?page=car-valeting">Car Valeting</a></li>
+              <li><a href="under-construction.html?page=end-of-tenancy">End of Tenancy</a></li>
+              <li><a href="under-construction.html?page=deep-clean">Deep Clean</a></li>
+              <li><a href="under-construction.html?page=domestic-clean">Domestic Clean</a></li>
+              <li><a href="under-construction.html?page=carpet-upholstery">Advanced Carpet &amp; Upholstery Cleaning</a></li>
+              <li><a href="under-construction.html?page=office-cleaning">Office Cleaning</a></li>
+              <li><a href="under-construction.html?page=after-build-clean">After Build Clean</a></li>
+              <li><a href="under-construction.html?page=party-cleaning">Pre &amp; Post Party Cleaning</a></li>
+              <li><a href="under-construction.html?page=oven-cleaning">Oven Cleaning</a></li>
+              <li><a href="under-construction.html?page=fridge-cleaning">Fridge Cleaning</a></li>
+              <li><a href="under-construction.html?page=window-cleaning">Window Cleaning</a></li>
+              <li><a href="under-construction.html?page=bbq-cleaning">BBQ Cleaning</a></li>
+              <li><a href="under-construction.html?page=jet-washing">Jet Washing</a></li>
+              <li><a href="under-construction.html?page=gutter-cleaning">Gutter Cleaning</a></li>
+              <li><a href="under-construction.html?page=car-valeting">Car Valeting</a></li>
             </ul>
           </li>
-          <li><a href="/under-construction.html?page=clients">Clients</a></li>
-          <li><a href="/under-construction.html?page=testimonials">Testimonials</a></li>
-          <li><a href="/under-construction.html?page=join-the-team">Join the Team</a></li>
-          <li class="nav__cta-item"><a href="/under-construction.html?page=contact" class="btn btn--primary btn--sm">Contact Us</a></li>
+          <li><a href="under-construction.html?page=clients">Clients</a></li>
+          <li><a href="under-construction.html?page=testimonials">Testimonials</a></li>
+          <li><a href="under-construction.html?page=join-the-team">Join the Team</a></li>
+          <li class="nav__cta-item"><a href="under-construction.html?page=contact" class="btn btn--primary btn--sm">Contact Us</a></li>
         </ul>
       </nav>
     </div>
@@ -100,7 +109,7 @@
         <svg class="spark spark--4"><use href="#i-sparkle"/></svg>
       </div>
       <div class="container uc__inner">
-        <div class="uc__icon" aria-hidden="true"><img src="/assets/img/mark-white.png" alt="" width="333" height="246"></div>
+        <div class="uc__icon" aria-hidden="true"><img src="assets/img/mark-white.png" alt="" width="333" height="246"></div>
         <span class="uc__page" data-uc-page hidden></span>
         <h1 id="uc-title">Page Not Found</h1>
         <p>Sorry, we couldn&rsquo;t find the page you were looking for. Head back to the homepage or get in touch and we&rsquo;ll be happy to help.</p>
@@ -108,7 +117,7 @@
           <a href="tel:+447721938429" class="btn btn--white btn--lg"><svg class="ico"><use href="#i-phone"/></svg> Call 07721 938429</a>
           <a href="https://wa.me/447721938429" target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg"><svg class="ico"><use href="#i-whatsapp"/></svg> WhatsApp Us</a>
         </div>
-        <a href="/" class="uc__back"><svg class="ico"><use href="#i-arrow"/></svg> Back to the homepage</a>
+        <a href="./" class="uc__back"><svg class="ico"><use href="#i-arrow"/></svg> Back to the homepage</a>
       </div>
     </section>
   </main>
@@ -117,30 +126,30 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <img src="/assets/img/logo-white.png" alt="All Cleanz" width="392" height="315">
+        <img src="assets/img/logo-white.png" alt="All Cleanz" width="392" height="315">
         <p>All Cleanz, a cleaning company you can trust to get the job done.</p>
       </div>
       <div>
         <h3 class="footer__title">Explore</h3>
         <ul class="footer__links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/under-construction.html?page=about">About</a></li>
-          <li><a href="/under-construction.html?page=services">Services</a></li>
-          <li><a href="/under-construction.html?page=clients">Clients</a></li>
-          <li><a href="/under-construction.html?page=testimonials">Testimonials</a></li>
-          <li><a href="/under-construction.html?page=join-the-team">Join the Team</a></li>
-          <li><a href="/under-construction.html?page=contact">Contact Us</a></li>
+          <li><a href="./">Home</a></li>
+          <li><a href="under-construction.html?page=about">About</a></li>
+          <li><a href="under-construction.html?page=services">Services</a></li>
+          <li><a href="under-construction.html?page=clients">Clients</a></li>
+          <li><a href="under-construction.html?page=testimonials">Testimonials</a></li>
+          <li><a href="under-construction.html?page=join-the-team">Join the Team</a></li>
+          <li><a href="under-construction.html?page=contact">Contact Us</a></li>
         </ul>
       </div>
       <div>
         <h3 class="footer__title">Popular Services</h3>
         <ul class="footer__links">
-          <li><a href="/under-construction.html?page=end-of-tenancy">End of Tenancy</a></li>
-          <li><a href="/under-construction.html?page=deep-clean">Deep Cleaning</a></li>
-          <li><a href="/under-construction.html?page=domestic-clean">Domestic Cleaning</a></li>
-          <li><a href="/under-construction.html?page=carpet-upholstery">Carpet &amp; Upholstery</a></li>
-          <li><a href="/under-construction.html?page=office-cleaning">Office Cleaning</a></li>
-          <li><a href="/under-construction.html?page=oven-cleaning">Oven Cleaning</a></li>
+          <li><a href="under-construction.html?page=end-of-tenancy">End of Tenancy</a></li>
+          <li><a href="under-construction.html?page=deep-clean">Deep Cleaning</a></li>
+          <li><a href="under-construction.html?page=domestic-clean">Domestic Cleaning</a></li>
+          <li><a href="under-construction.html?page=carpet-upholstery">Carpet &amp; Upholstery</a></li>
+          <li><a href="under-construction.html?page=office-cleaning">Office Cleaning</a></li>
+          <li><a href="under-construction.html?page=oven-cleaning">Oven Cleaning</a></li>
         </ul>
       </div>
       <div>
@@ -169,6 +178,6 @@
     <a href="mailto:enquiries@allcleanznorthwest.co.uk"><svg class="ico"><use href="#i-mail"/></svg> Email</a>
   </div>
 
-  <script src="/assets/js/main.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
