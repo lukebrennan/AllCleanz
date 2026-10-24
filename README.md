@@ -34,6 +34,12 @@ All copy, services, claims and testimonials are taken from the existing allclean
 - Open Graph tags, canonical URL, sitemap and robots.txt
 - Semantic headings (single H1), descriptive image alt text, lazy-loaded below the fold images, WebP images
 
+## Hosting
+
+Preview site (GitHub Pages, built from `main`): https://lukebrennan.github.io/AllCleanz/
+
+The production host (Netlify, `allcleanz.netlify.app`) is paused until launch.
+
 ## Run locally
 
 ```
