@@ -463,12 +463,12 @@ body.nav-open .header::before { background: var(--white); }
 .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .why-card {
   position: relative; padding: 30px 26px;
-  border: 1px solid var(--line); border-radius: var(--radius);
-  background: var(--white);
-  transition: transform .3s, box-shadow .3s, border-color .3s;
+  border-radius: var(--radius);
+  background: var(--mint);
+  transition: transform .3s, box-shadow .3s, background-color .3s;
 }
-.why-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
-.why-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+.why-card:hover { transform: translateY(-6px); background: var(--mint-2); box-shadow: var(--shadow-sm); }
+.why-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; color: var(--green-700); }
 .why-card p { margin: 0; font-size: .98rem; }
 
 /* ---------- Clients ---------- */
