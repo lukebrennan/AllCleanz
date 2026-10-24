@@ -110,7 +110,7 @@
     var backBtn = quote.querySelector('.quote__back');
     var nextBtn = quote.querySelector('.quote__next');
     var submitBtn = quote.querySelector('.quote__submit');
-    var nav = quote.querySelector('.quote__nav');
+    var quoteNav = quote.querySelector('.quote__nav');
     var bar = quote.querySelector('.quote__bar span');
     var stepNum = quote.querySelector('[data-step-num]');
     var stepTotal = quote.querySelector('[data-step-total]');
@@ -240,7 +240,7 @@
       done.querySelector('.quote__wa').href = 'https://wa.me/447721938429?text=' + encodeURIComponent(text);
 
       steps.forEach(function (step) { step.hidden = true; });
-      nav.hidden = true;
+      quoteNav.hidden = true;
       count.hidden = true;
       bar.style.width = '100%';
       done.hidden = false;
@@ -252,7 +252,7 @@
       quote.querySelectorAll('.quote__size').forEach(function (group) { group.hidden = true; });
       quote.querySelectorAll('.is-invalid').forEach(function (el) { el.classList.remove('is-invalid'); });
       done.hidden = true;
-      nav.hidden = false;
+      quoteNav.hidden = false;
       count.hidden = false;
       show(0, true);
     });
