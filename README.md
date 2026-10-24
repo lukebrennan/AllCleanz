@@ -37,7 +37,7 @@ Photos: almost all photos are All Cleanz's own, taken from their Facebook page (
 - Open Graph tags, canonical URL, sitemap and robots.txt
 - Fonts (Inter and Poppins, Latin subset) are self-hosted in `assets/fonts/` and the hero fonts are preloaded, so no third-party requests block rendering
 - Semantic headings (single H1), descriptive image alt text, lazy-loaded below the fold images, WebP images
-- 1200x630 social sharing image (`assets/img/og-image.jpg`)
+- 1200x630 social sharing image (`assets/img/og-image.jpg`). During the preview, the `og:image` and `twitter:image` tags point at the GitHub Pages copy so link previews work; switch them back to `https://www.allcleanz.co.uk/assets/img/og-image.jpg` at launch
 - `llms.txt` summary for AI assistants and search tools
 - `robots.txt` and `sitemap.xml` (with image entries) point at the final domain, www.allcleanz.co.uk
 
