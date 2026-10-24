@@ -1,6 +1,6 @@
 # All Cleanz Website
 
-New landing page for [All Cleanz](https://www.allcleanz.co.uk/), a domestic and commercial cleaning company based in Prescot, Merseyside.
+New landing page for [All Cleanz](https://www.allcleanz.co.uk/), a domestic and commercial cleaning company based in Merseyside, working across the North West.
 
 A static site: plain HTML, CSS and JavaScript with no build step.
 
@@ -35,7 +35,7 @@ Photos: service cards use the photos from the current site. Three stock photos c
 
 ## SEO
 
-- Title and meta description targeting "cleaning company Prescot / Merseyside"
+- Title and meta description targeting "cleaning company Merseyside / North West"
 - `WebSite` and `HouseCleaningService` JSON-LD with phone, email, area served and services
 - Open Graph tags, canonical URL, sitemap and robots.txt
 - Semantic headings (single H1), descriptive image alt text, lazy-loaded below the fold images, WebP images
