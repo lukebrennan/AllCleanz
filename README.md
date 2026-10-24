@@ -27,7 +27,7 @@ robots.txt, sitemap.xml, site.webmanifest
 
 All copy, services, claims and testimonials are taken from the existing allcleanz.co.uk site. Nothing has been invented.
 
-Photos: almost all photos are All Cleanz's own, taken from their Facebook page (downloaded at the highest resolution Facebook serves). This includes the hero, the about section, the before and after slider, the recent work strip and the main service cards. A few service cards (office, after build, party, window, car valeting, jet washing, gutter and BBQ cleaning) still use the images from their previous website, as their Facebook has no clear photos of those services yet.
+Photos: almost all photos are All Cleanz's own, taken from their Facebook page (downloaded at the highest resolution Facebook serves). This includes the hero, the about section, the before and after slider, the recent work strip and the main service cards. The Deep Cleaning card and a few others (office, after build, party, window, car valeting, jet washing, gutter and BBQ cleaning) still use the images from their previous website, as their Facebook has no clear photos of those services yet.
 
 ## SEO
 
