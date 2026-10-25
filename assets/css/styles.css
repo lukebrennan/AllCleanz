@@ -401,7 +401,7 @@ body.nav-open .header::before { background: var(--white); }
 }
 .dry-badge {
   position: absolute; right: -14px; bottom: 0; margin: 0;
-  width: 160px; height: 160px; border-radius: 50%;
+  width: 172px; height: 172px; border-radius: 50%;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   background: var(--forest); color: var(--white); text-align: center; line-height: 1;
   border: 5px solid var(--white); box-shadow: var(--shadow-lg);
@@ -415,7 +415,7 @@ body.nav-open .header::before { background: var(--white); }
   font-family: var(--font-display); font-weight: 700; font-size: .72rem;
   letter-spacing: .14em; text-transform: uppercase;
 }
-.dry-badge__top { color: var(--green); }
+.dry-badge__top { color: var(--green); letter-spacing: .07em; white-space: nowrap; }
 .dry-badge__num {
   font-family: var(--font-display); font-weight: 900; font-style: italic;
   font-size: 3.7rem; line-height: .95; margin-top: 2px;
@@ -864,8 +864,9 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
   .results__ctas .btn { flex: 1 1 100%; }
   .hero__photo--main { inset: 0 0 50px 20px; border-width: 4px; }
   .hero__photo--small { border-width: 4px; }
-  .dry-badge { width: 116px; height: 116px; right: -4px; border-width: 4px; }
+  .dry-badge { width: 134px; height: 134px; right: -4px; border-width: 4px; }
   .dry-badge__top, .dry-badge__foot { font-size: .58rem; letter-spacing: .1em; }
+  .dry-badge__top { font-size: .52rem; letter-spacing: .04em; margin-top: 6px; }
   .dry-badge__num { font-size: 2.6rem; }
   .dry-badge__unit { font-size: .74rem; }
   .dry-badge__foot { margin-top: 4px; }
