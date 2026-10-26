@@ -167,6 +167,7 @@ body.nav-open .header::before { background: var(--white); }
 .nav__list > li > a[aria-current="page"] { color: var(--green-600); }
 .nav__list > li > a[aria-current="page"] { background: var(--mint); }
 .nav__cta-item { margin-left: 8px; }
+.header__book { display: none; }
 
 .has-dropdown { display: flex; align-items: center; }
 .has-dropdown > .nav__parent { padding-right: 4px !important; }
@@ -232,6 +233,9 @@ body.nav-open .header::before { background: var(--white); }
 
 @media (max-width: 1100px) {
   .nav-toggle { display: block; }
+  .header__inner { gap: 10px; }
+  .header__book { display: inline-flex; margin-left: auto; }
+  .nav__cta-item { display: none; }
   .nav {
     position: fixed; left: 0; right: 0; top: var(--nav-top, var(--header-h)); bottom: 0;
     background: var(--white);
@@ -889,6 +893,8 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
 }
 
 @media (max-width: 420px) {
+  .brand img { height: 32px; }
+  .header__book { padding: .55em 1em; font-size: .88rem; }
   .mobile-bar a { padding-inline: 6px; font-size: .86rem; gap: 5px; }
   .why-grid { grid-template-columns: 1fr; }
   .texatherm__ctas .btn { flex: 1 1 100%; }

@@ -68,11 +68,11 @@
     }
   });
 
-  /* Close the mobile menu after following an in-page link, or when resizing to desktop */
-  if (nav) {
-    nav.addEventListener('click', function (e) {
-      var link = e.target.closest('a');
-      if (link && link.getAttribute('href').charAt(0) === '#') setMenu(false);
+  /* Close the mobile menu after following a link to this page, or when resizing to desktop */
+  if (header) {
+    header.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href]');
+      if (link && link.hash && link.pathname === window.location.pathname) setMenu(false);
     });
   }
   mobileQuery.addEventListener('change', function (e) {
