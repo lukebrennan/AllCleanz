@@ -47,14 +47,37 @@
         "url": "https://www.allcleanz.co.uk/",
         "name": "All Cleanz",
         "inLanguage": "en-GB",
-        "publisher": { "@id": "https://www.allcleanz.co.uk/#business" }
+        "publisher": {
+          "@id": "https://www.allcleanz.co.uk/#business"
+        }
       },
       {
-        "@type": "HouseCleaningService",
+        "@type": "WebPage",
+        "@id": "https://www.allcleanz.co.uk/#webpage",
+        "url": "https://www.allcleanz.co.uk/",
+        "name": "All Cleanz | Merseyside & North West Cleaning Company",
+        "description": "Domestic and commercial cleaners across Merseyside and the North West. End of tenancy, deep cleans, offices and 30 minute dry carpets. Call 07721 938429.",
+        "inLanguage": "en-GB",
+        "isPartOf": {
+          "@id": "https://www.allcleanz.co.uk/#website"
+        },
+        "about": {
+          "@id": "https://www.allcleanz.co.uk/#business"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://www.allcleanz.co.uk/assets/img/hero-cleaner.webp"
+        }
+      },
+      {
+        "@type": "LocalBusiness",
         "@id": "https://www.allcleanz.co.uk/#business",
         "name": "All Cleanz",
         "url": "https://www.allcleanz.co.uk/",
-        "logo": "https://www.allcleanz.co.uk/assets/img/all-cleanz-logo-original.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.allcleanz.co.uk/assets/img/all-cleanz-logo-original.png"
+        },
         "image": [
           "https://www.allcleanz.co.uk/assets/img/og-image.jpg",
           "https://www.allcleanz.co.uk/assets/img/hero-cleaner.webp"
@@ -69,32 +92,162 @@
           "addressCountry": "GB"
         },
         "areaServed": [
-          { "@type": "AdministrativeArea", "name": "Merseyside" },
-          { "@type": "AdministrativeArea", "name": "North West England" }
+          {
+            "@type": "AdministrativeArea",
+            "name": "Merseyside"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "North West England"
+          }
         ],
         "sameAs": [
           "https://www.facebook.com/AllcleanzNW",
-          "https://www.instagram.com/allcleanz/"
+          "https://www.instagram.com/allcleanz/",
+          "https://www.google.com/maps?cid=6405241462400743044"
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Cleaning services",
           "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "End of Tenancy Cleaning" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Deep Cleaning" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Domestic Cleaning" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Carpet & Upholstery Cleaning", "description": "Texatherm carpet, upholstery and hard floor cleaning. Textiles dry in 30 minutes, guaranteed." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Office Cleaning" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "After Build Cleaning" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pre & Post Party Cleaning" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Oven Cleaning" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fridge Cleaning" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Window Cleaning" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Valeting" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Jet Washing" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gutter Cleaning" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "BBQ Cleaning" } }
-          ]
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "End of Tenancy Cleaning",
+                "@id": "https://www.allcleanz.co.uk/end-of-tenancy-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/end-of-tenancy-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Deep Cleaning",
+                "@id": "https://www.allcleanz.co.uk/deep-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/deep-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Domestic Cleaning",
+                "@id": "https://www.allcleanz.co.uk/domestic-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/domestic-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Carpet & Upholstery Cleaning",
+                "description": "Texatherm carpet, upholstery and hard floor cleaning. Textiles dry in 30 minutes, guaranteed.",
+                "@id": "https://www.allcleanz.co.uk/carpet-upholstery-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/carpet-upholstery-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Office Cleaning",
+                "@id": "https://www.allcleanz.co.uk/office-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/office-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "After Build Cleaning",
+                "@id": "https://www.allcleanz.co.uk/after-build-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/after-build-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Pre & Post Party Cleaning",
+                "@id": "https://www.allcleanz.co.uk/pre-post-party-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/pre-post-party-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Oven Cleaning",
+                "@id": "https://www.allcleanz.co.uk/oven-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/oven-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Fridge Cleaning",
+                "@id": "https://www.allcleanz.co.uk/fridge-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/fridge-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Window Cleaning",
+                "@id": "https://www.allcleanz.co.uk/window-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/window-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Car Valeting",
+                "@id": "https://www.allcleanz.co.uk/car-valeting#service",
+                "url": "https://www.allcleanz.co.uk/car-valeting"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Jet Washing",
+                "@id": "https://www.allcleanz.co.uk/jet-washing#service",
+                "url": "https://www.allcleanz.co.uk/jet-washing"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Gutter Cleaning",
+                "@id": "https://www.allcleanz.co.uk/gutter-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/gutter-cleaning"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "BBQ Cleaning",
+                "@id": "https://www.allcleanz.co.uk/bbq-cleaning#service",
+                "url": "https://www.allcleanz.co.uk/bbq-cleaning"
+              }
+            }
+          ],
+          "url": "https://www.allcleanz.co.uk/services"
+        },
+        "hasMap": "https://www.google.com/maps?cid=6405241462400743044",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+447721938429",
+          "email": "enquiries@allcleanznorthwest.co.uk",
+          "contactType": "customer service",
+          "areaServed": "GB",
+          "availableLanguage": "English"
         }
       }
     ]

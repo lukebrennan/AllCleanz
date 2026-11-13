@@ -49,6 +49,7 @@ Key facts:
 - [BBQ Cleaning](https://www.allcleanz.co.uk/bbq-cleaning): Gas and charcoal BBQ cleaning with non toxic products, ready to use in 2 hours
 - [About](https://www.allcleanz.co.uk/about): About All Cleanz, clients and customer reviews
 - [Join the Team](https://www.allcleanz.co.uk/join-the-team): Apply to work as a domestic cleaner, cleaning supervisor or car valeter
+- [Privacy Policy](https://www.allcleanz.co.uk/privacy-policy): How All Cleanz collects, uses and protects personal information
 
 ## Contact
 
@@ -57,3 +58,7 @@ Key facts:
 - [Email](mailto:enquiries@allcleanznorthwest.co.uk)
 - [Facebook](https://www.facebook.com/AllcleanzNW)
 - [Instagram](https://www.instagram.com/allcleanz/)
+
+## Optional
+
+- [Full site content](https://www.allcleanz.co.uk/llms-full.txt): The text of every page in one file

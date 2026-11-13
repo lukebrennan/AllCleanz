@@ -1,5 +1,10 @@
 # All Cleanz | https://www.allcleanz.co.uk
+# Every page is open to search engines and AI assistants.
 User-agent: *
 Allow: /
 
 Sitemap: https://www.allcleanz.co.uk/sitemap.xml
+
+# Site summaries for AI assistants:
+# https://www.allcleanz.co.uk/llms.txt
+# https://www.allcleanz.co.uk/llms-full.txt

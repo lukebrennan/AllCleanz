@@ -37,13 +37,25 @@ Photos: almost all photos are All Cleanz's own, taken from their Facebook page (
 ## SEO
 
 - Title and meta description targeting "cleaning company Merseyside / North West"
-- `WebSite` and `HouseCleaningService` JSON-LD with phone, email, area served and services
+- `WebSite`, `WebPage` and `LocalBusiness` JSON-LD (phone, email, area served, Google Maps listing, all 14 services linked to their pages); each page has `WebPage` + `BreadcrumbList`, service pages add `Service`, the Services page an `ItemList`. Validated with validator.schema.org
 - Open Graph tags, canonical URL, sitemap and robots.txt
 - Fonts (Inter and Poppins, Latin subset) are self-hosted in `assets/fonts/` and the hero fonts are preloaded, so no third-party requests block rendering
 - Semantic headings (single H1), descriptive image alt text, lazy-loaded below the fold images, WebP images
 - 1200x630 social sharing image (`assets/img/og-image.jpg`). During the preview, the `og:image` and `twitter:image` tags point at the GitHub Pages copy so link previews work; switch them back to `https://www.allcleanz.co.uk/assets/img/og-image.jpg` at launch
-- `llms.txt` summary for AI assistants and search tools
+- `llms.txt` summary for AI assistants and search tools, and `llms-full.txt` with the text of every page (regenerate it when page copy changes)
 - `robots.txt` and `sitemap.xml` (with image entries) point at the final domain, www.allcleanz.co.uk
+
+## Launch checklist (SEO)
+
+1. Remove the preview passcode (see below) and switch `og:image` / `twitter:image` back to the www.allcleanz.co.uk address on every page.
+2. Point the domain at the new host. `netlify.toml` handles the old Wix redirects.
+3. Google Search Console: verify the domain (DNS record), submit `https://www.allcleanz.co.uk/sitemap.xml`, and use URL Inspection to request indexing of the homepage and service pages.
+4. Bing Webmaster Tools: import the site from Search Console and submit the sitemap.
+5. IndexNow (Bing, Yandex and others): the key file `1114069adc60dde094b24bb030937154.txt` is in the site root. After launch, and whenever pages change, submit the URLs:
+   `https://api.indexnow.org/indexnow?url=https://www.allcleanz.co.uk/&key=1114069adc60dde094b24bb030937154`
+6. Google Business Profile: set the website to `https://www.allcleanz.co.uk/` and check the name, phone and service area match the site.
+7. Test the homepage and a service page in Google's Rich Results Test and the Schema Markup Validator.
+8. Watch Search Console's Pages report for 404s over the first few weeks.
 
 ## Launch settings (`netlify.toml`)
 
