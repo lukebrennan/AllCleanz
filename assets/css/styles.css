@@ -808,6 +808,8 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
   padding-block: 22px; border-top: 1px solid rgba(255, 255, 255, .1); font-size: .88rem;
 }
 .footer__bottom p { margin: 0; }
+.footer__legal { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.footer__legal a { color: inherit; }
 
 /* ---------- Mobile action bar ---------- */
 .mobile-bar { display: none; }
@@ -1017,6 +1019,19 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
 .join-form__group.is-invalid .choice span { border-color: #c0392b; }
 .join-form .field input[type="file"] { padding: 10px; font-size: .92rem; }
 .join-form__done { outline: none; }
+
+/* Privacy policy */
+.hero--legal { padding: clamp(40px, 6vw, 72px) 0 clamp(90px, 10vw, 130px); }
+.hero--legal .hero__title { margin-bottom: 0; }
+.prose { max-width: 780px; }
+.prose h2 { font-size: clamp(1.4rem, 1.1rem + 1vw, 1.8rem); font-weight: 800; margin: 2em 0 .6em; }
+.prose h3 { font-size: 1.15rem; font-weight: 700; margin: 1.4em 0 .4em; }
+.prose ul { list-style: disc; padding-left: 1.3em; margin: 0 0 1em; }
+.prose li { margin-bottom: .45em; }
+.prose a { color: var(--green-700); font-weight: 600; }
+.legal { padding-top: clamp(32px, 5vw, 56px); }
+.form-note { margin: 4px 0 16px; font-size: .88rem; color: var(--muted); }
+.form-note a { color: var(--green-700); font-weight: 600; }
 
 /* ---------- Preview passcode screen (remove at launch) ---------- */
 html.gate-locked body { overflow: hidden; }

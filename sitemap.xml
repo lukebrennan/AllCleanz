@@ -178,4 +178,10 @@
       <image:loc>https://www.allcleanz.co.uk/assets/img/hero-cleaner.webp</image:loc>
     </image:image>
   </url>
+  <url>
+    <loc>https://www.allcleanz.co.uk/privacy-policy</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
