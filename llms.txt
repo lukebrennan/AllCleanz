@@ -32,12 +32,23 @@ Key facts:
 ## Pages
 
 - [Home](https://www.allcleanz.co.uk/): Overview of All Cleanz, services, carpet and upholstery cleaning, clients, customer testimonials and contact details
+- [Services](https://www.allcleanz.co.uk/services): Overview of all 14 cleaning services
 - [End of Tenancy Cleaning](https://www.allcleanz.co.uk/end-of-tenancy-cleaning): Room by room checklist approved by agencies, so you get your deposit back
 - [Deep Cleaning](https://www.allcleanz.co.uk/deep-cleaning): Top to bottom deep clean with your belongings in place
 - [Domestic Cleaning](https://www.allcleanz.co.uk/domestic-cleaning): Daily, weekly or monthly home cleaning tailored to your needs
 - [Carpet & Upholstery Cleaning](https://www.allcleanz.co.uk/carpet-upholstery-cleaning): Texatherm® carpet, upholstery and hard floor cleaning, dry in 30 minutes, guaranteed
 - [Office Cleaning](https://www.allcleanz.co.uk/office-cleaning): Flexible office and commercial cleaning contracts
 - [Oven Cleaning](https://www.allcleanz.co.uk/oven-cleaning): Domestic and commercial oven cleaning, safe to use straight after
+- [After Build Cleaning](https://www.allcleanz.co.uk/after-build-cleaning): Cleaning for builders and home owners after construction or renovation work
+- [Pre & Post Party Cleaning](https://www.allcleanz.co.uk/pre-post-party-cleaning): Pre and post party cleaning for homes and businesses, including weekends
+- [Fridge Cleaning](https://www.allcleanz.co.uk/fridge-cleaning): Domestic and commercial fridge cleaning
+- [Window Cleaning](https://www.allcleanz.co.uk/window-cleaning): Interior and exterior window cleaning for homes, offices and shops
+- [Car Valeting](https://www.allcleanz.co.uk/car-valeting): Car valeting provided as a home service
+- [Jet Washing](https://www.allcleanz.co.uk/jet-washing): Jet washing for driveways, patios, paving, decking and more
+- [Gutter Cleaning](https://www.allcleanz.co.uk/gutter-cleaning): Gutter cleaning, drainpipe unblocking, soffit and fascia cleaning
+- [BBQ Cleaning](https://www.allcleanz.co.uk/bbq-cleaning): Gas and charcoal BBQ cleaning with non toxic products, ready to use in 2 hours
+- [About](https://www.allcleanz.co.uk/about): About All Cleanz, clients and customer reviews
+- [Join the Team](https://www.allcleanz.co.uk/join-the-team): Apply to work as a domestic cleaner, cleaning supervisor or car valeter
 
 ## Contact
 

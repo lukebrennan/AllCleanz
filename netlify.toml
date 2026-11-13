@@ -42,57 +42,55 @@
   to = "/oven-cleaning"
   status = 301
 
-# Services without their own page yet: point to the services section.
-# When one of these gets a page, change its "to" to the new page.
 [[redirects]]
   from = "/after-build-clean-1"
-  to = "/#services"
+  to = "/after-build-cleaning"
   status = 301
 
 [[redirects]]
   from = "/pre-post-party-cleaning-1"
-  to = "/#services"
+  to = "/pre-post-party-cleaning"
   status = 301
 
 [[redirects]]
   from = "/fridge-cleaning-1"
-  to = "/#services"
+  to = "/fridge-cleaning"
   status = 301
 
 [[redirects]]
   from = "/window-cleaning-1"
-  to = "/#services"
+  to = "/window-cleaning"
   status = 301
 
 [[redirects]]
   from = "/car-valeting-1"
-  to = "/#services"
+  to = "/car-valeting"
   status = 301
 
 [[redirects]]
   from = "/jet-washing-1"
-  to = "/#services"
+  to = "/jet-washing"
   status = 301
 
 [[redirects]]
   from = "/gutter-cleaning-1"
-  to = "/#services"
+  to = "/gutter-cleaning"
   status = 301
 
 [[redirects]]
   from = "/bbq-cleaning-1"
-  to = "/#services"
+  to = "/bbq-cleaning"
   status = 301
 
+# Other pages (/join-the-team keeps the same address, so needs no redirect)
 [[redirects]]
   from = "/services-1"
-  to = "/#services"
+  to = "/services"
   status = 301
 
-# Other pages
 [[redirects]]
   from = "/about-1"
-  to = "/#about"
+  to = "/about"
   status = 301
 
 [[redirects]]
@@ -110,9 +108,10 @@
   to = "/#contact"
   status = 301
 
+# The old placeholder page
 [[redirects]]
-  from = "/join-the-team"
-  to = "/#contact"
+  from = "/under-construction.html"
+  to = "/"
   status = 301
 
 # ---------- Headers ----------

@@ -1010,6 +1010,14 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
   .more-services .service-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* Join the Team */
+.join-form { max-width: 760px; margin-inline: auto; }
+.join-form__group { margin: 0 0 18px; padding: 0; border: 0; }
+.join-form__group legend { margin-bottom: 8px; font-family: var(--font-display); font-weight: 600; font-size: .92rem; color: var(--ink); }
+.join-form__group.is-invalid .choice span { border-color: #c0392b; }
+.join-form .field input[type="file"] { padding: 10px; font-size: .92rem; }
+.join-form__done { outline: none; }
+
 /* ---------- Preview passcode screen (remove at launch) ---------- */
 html.gate-locked body { overflow: hidden; }
 html.gate-locked body > :not(.gate) { display: none !important; }

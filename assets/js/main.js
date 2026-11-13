@@ -337,39 +337,74 @@
     el.textContent = new Date().getFullYear();
   });
 
-  /* Under construction page: show which page was requested */
-  var ucName = document.querySelector('[data-uc-page]');
-  if (ucName) {
-    var pages = {
-      'about': 'About',
-      'services': 'Services',
-      'clients': 'Clients',
-      'testimonials': 'Testimonials',
-      'join-the-team': 'Join the Team',
-      'contact': 'Contact Us',
-      'end-of-tenancy': 'End of Tenancy',
-      'deep-clean': 'Deep Clean',
-      'domestic-clean': 'Domestic Clean',
-      'carpet-upholstery': 'Advanced Carpet & Upholstery Cleaning',
-      'office-cleaning': 'Office Cleaning',
-      'after-build-clean': 'After Build Clean',
-      'party-cleaning': 'Pre & Post Party Cleaning',
-      'oven-cleaning': 'Oven Cleaning',
-      'fridge-cleaning': 'Fridge Cleaning',
-      'window-cleaning': 'Window Cleaning',
-      'bbq-cleaning': 'BBQ Cleaning',
-      'jet-washing': 'Jet Washing',
-      'gutter-cleaning': 'Gutter Cleaning',
-      'car-valeting': 'Car Valeting'
-    };
-    var slug = new URLSearchParams(window.location.search).get('page');
-    var name = pages[slug];
-    if (name) {
-      ucName.textContent = name;
-      ucName.hidden = false;
-      document.title = name + ' | Coming Soon | All Cleanz';
-      var navLink = document.querySelector('.nav a[href="under-construction.html?page=' + slug + '"]');
-      if (navLink) navLink.setAttribute('aria-current', 'page');
-    }
+  /* Join the Team form. Until a form service is connected at launch, the
+   * application is handed to email or WhatsApp so nothing is lost. */
+  var join = document.getElementById('join-form');
+  if (join) {
+    var joinFields = join.querySelector('.join-form__fields');
+    var joinDone = join.querySelector('.join-form__done');
+    var joinError = join.querySelector('.quote__error');
+
+    join.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var firstInvalid = null;
+      join.querySelectorAll('.field input[required]').forEach(function (input) {
+        var bad = !input.value.trim() || (input.type === 'email' && !input.checkValidity());
+        input.closest('.field').classList.toggle('is-invalid', bad);
+        input.setAttribute('aria-invalid', String(bad));
+        if (bad && !firstInvalid) firstInvalid = input;
+      });
+      var position = join.querySelector('input[name="position"]:checked');
+      join.querySelector('.join-form__group').classList.toggle('is-invalid', !position);
+      if (!position && !firstInvalid) firstInvalid = join.querySelector('input[name="position"]');
+      joinError.hidden = !firstInvalid;
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+
+      var el = join.elements;
+      var rows = [
+        ['Name', el.first_name.value.trim() + ' ' + el.last_name.value.trim()],
+        ['Email', el.email.value.trim()],
+        ['Phone', el.phone.value.trim()],
+        ['Applying for', position.value],
+        ['Can start', el.start_date.value.split('-').reverse().join('/')]
+      ].filter(function (row) { return row[1]; });
+
+      var summary = joinDone.querySelector('.quote__summary');
+      summary.innerHTML = '';
+      rows.forEach(function (row) {
+        var dt = document.createElement('dt');
+        var dd = document.createElement('dd');
+        dt.textContent = row[0];
+        dd.textContent = row[1];
+        summary.appendChild(dt);
+        summary.appendChild(dd);
+      });
+      var text = rows.map(function (row) { return row[0] + ': ' + row[1]; }).join('\n');
+      joinDone.querySelector('[data-join-name]').textContent = el.first_name.value.trim();
+      joinDone.querySelector('[data-join-email]').href = 'mailto:enquiries@allcleanznorthwest.co.uk?subject=' +
+        encodeURIComponent('Job application: ' + position.value) +
+        '&body=' + encodeURIComponent('Hi All Cleanz, I would like to apply to join the team.\n\n' + text + '\n\n(Please attach your CV to this email.)');
+      joinDone.querySelector('[data-join-wa]').href = 'https://wa.me/447721938429?text=' +
+        encodeURIComponent('Hi All Cleanz, I would like to apply to join the team.\n' + text);
+
+      joinFields.hidden = true;
+      joinDone.hidden = false;
+      joinDone.focus();
+      trackEvent('join_form_submit', { position: position.value });
+    });
+
+    join.addEventListener('change', function (e) {
+      if (e.target.name === 'position') join.querySelector('.join-form__group').classList.remove('is-invalid');
+    });
+    join.addEventListener('input', function (e) {
+      var field = e.target.closest('.field');
+      if (field && e.target.value.trim()) {
+        field.classList.remove('is-invalid');
+        e.target.setAttribute('aria-invalid', 'false');
+      }
+    });
   }
 })();

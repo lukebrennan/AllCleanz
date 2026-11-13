@@ -8,17 +8,21 @@ A static site: plain HTML, CSS and JavaScript with no build step.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Landing page: hero with call/WhatsApp CTAs, about, 14 services, Texatherm carpet cleaning, why choose us, clients, testimonials, contact |
-| `end-of-tenancy-cleaning.html`, `deep-cleaning.html`, `domestic-cleaning.html`, `carpet-upholstery-cleaning.html`, `office-cleaning.html`, `oven-cleaning.html` | Service pages, linked without `.html` (e.g. `/oven-cleaning`). Copy is from the matching page on the old Wix site. Each has its own title, description, canonical URL and `Service` + `BreadcrumbList` JSON-LD. The header and footer are copied from `index.html`, so change all pages when editing them |
-| `under-construction.html` | Target for the remaining nav links. Reads `?page=<slug>` to show which page was requested. `noindex` |
-| `404.html` | Not found page for static hosts such as GitHub Pages or Netlify |
+| `index.html` | Homepage: hero with call/WhatsApp CTAs, about, 14 services, Texatherm carpet cleaning, why choose us, clients, testimonials, quote form |
+| 14 service pages, e.g. `end-of-tenancy-cleaning.html`, `oven-cleaning.html`, `bbq-cleaning.html` | One page per service, copy taken from the matching page on the old Wix site. Each has its own title, description, canonical URL and `Service` + `BreadcrumbList` JSON-LD |
+| `services.html` | All 14 services in one grid |
+| `about.html` | About copy, clients and testimonials |
+| `join-the-team.html` | Job application form (domestic cleaner, cleaning supervisor, car valeter) |
+| `404.html` | Not found page |
+
+Pages are linked without `.html` (e.g. `/oven-cleaning`). The header and footer are copied from `index.html` into every page, so a change to either needs making on all pages. Clients and Testimonials in the menu link to those sections of the homepage.
 
 ## Structure
 
 ```
 assets/
   css/styles.css      Brand tokens (green #43B288), layout, responsive rules
-  js/main.js          Mobile menu, services dropdown, scroll reveal, ticker, under construction labels
+  js/main.js          Mobile menu, services dropdown, scroll reveal, ticker, quote and job application forms, before/after slider, lead tracking
   img/                Logo variants, favicons, photos (WebP)
   img/services/       Service card photos
 robots.txt, sitemap.xml, site.webmanifest
@@ -45,14 +49,14 @@ Photos: almost all photos are All Cleanz's own, taken from their Facebook page (
 
 Ignored by GitHub Pages, active once the site is on Netlify:
 
-- 301 redirects from all 21 old Wix URLs (e.g. `/end-of-tenancy-1`) to the matching new page or homepage section, so Google rankings carry over. When another service gets its own page, update its redirect
+- 301 redirects from the old Wix URLs (e.g. `/end-of-tenancy-1`) to the matching new page or homepage section, so Google rankings carry over
 - Redirect from `allcleanz.co.uk` to `www.allcleanz.co.uk`
 - Long browser caching for CSS, JS and fonts (bump the `?v=` value on every page when `styles.css` or `main.js` changes), 30 days for images
 - Standard security headers
 
 ## Lead tracking
 
-`main.js` sends events for phone clicks (`click_call`), WhatsApp clicks (`click_whatsapp`), email clicks (`click_email`) and quote form submissions (`quote_form_submit`), with where on the page the click happened. Nothing is sent until Google Analytics 4 (`gtag`) or Plausible is added to the pages; it then picks them up automatically. GA4 needs a cookie consent banner in the UK; Plausible does not.
+`main.js` sends events for phone clicks (`click_call`), WhatsApp clicks (`click_whatsapp`), email clicks (`click_email`) quote form submissions (`quote_form_submit`) and job applications (`join_form_submit`), with where on the page the click happened. Nothing is sent until Google Analytics 4 (`gtag`) or Plausible is added to the pages; it then picks them up automatically. GA4 needs a cookie consent banner in the UK; Plausible does not.
 
 ## Hosting
 
@@ -62,7 +66,9 @@ The production host (Netlify, `allcleanz.netlify.app`) is paused until launch.
 
 ## Forms
 
-The quote form (in the contact section) is a demo: it walks through service, property, frequency and contact details, then shows a summary. It does not send anything to an inbox yet, so connect it (for example with Netlify Forms) before launch. The confirmation screen's "Send these details on WhatsApp" button does work, as do the pre-filled WhatsApp links across the site.
+**Join the Team form:** marked up for Netlify Forms (`data-netlify`, honeypot, CV upload). For now `main.js` stops the real submit and hands the application to a pre-filled email or WhatsApp message, so nothing is lost before launch. Once Netlify Forms is switched on, remove that hand-off in `main.js` so the form posts normally.
+
+**Quote form:** the quote form (in the contact section) is a demo: it walks through service, property, frequency and contact details, then shows a summary. It does not send anything to an inbox yet, so connect it (for example with Netlify Forms) before launch. The confirmation screen's "Send these details on WhatsApp" button does work, as do the pre-filled WhatsApp links across the site.
 
 ## Preview passcode
 
@@ -76,4 +82,4 @@ This is a deterrent, not real security: the page content is still delivered to t
 python3 -m http.server 8000
 ```
 
-Then open http://localhost:8000. The service pages are linked without `.html`, which GitHub Pages and Netlify handle; with this simple server, add `.html` to the address.
+Then open http://localhost:8000. Pages are linked without `.html`, which GitHub Pages and Netlify handle; with this simple server, add `.html` to the address.
