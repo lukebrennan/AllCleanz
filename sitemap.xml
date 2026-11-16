@@ -66,6 +66,9 @@
     <image:image>
       <image:loc>https://www.allcleanz.co.uk/assets/img/services/carpet-sofa.webp</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/work/carpet-rotary.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://www.allcleanz.co.uk/office-cleaning</loc>
@@ -139,7 +142,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.allcleanz.co.uk/assets/img/services/jet.webp</image:loc>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/services/jet-driveway.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/work/drive-front-after.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -148,7 +154,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://www.allcleanz.co.uk/assets/img/services/gutter.webp</image:loc>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/services/gutter-vacuum.webp</image:loc>
     </image:image>
   </url>
   <url>

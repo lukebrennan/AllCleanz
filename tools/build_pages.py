@@ -92,6 +92,38 @@ ALL_ROOMS = [
     ('Hallway &amp; stairs', '<p>Polish the front door and clean rugs.</p>'),
 ]
 
+
+# ---------- Real work: before/after sliders, side-by-side pairs, photo galleries ----------
+W = 'assets/img/work/'
+
+def ba_slider(name, alt_before, alt_after):
+    return (f'<div class="ba reveal" style="--pos: 50%">'
+            f'<img class="ba__img" src="{W}{name}-after.webp" srcset="{W}{name}-after-500.webp 500w, {W}{name}-after.webp 900w" sizes="(max-width: 960px) 92vw, 460px" alt="{alt_after}" width="900" height="1088" loading="lazy">'
+            f'<div class="ba__before"><img class="ba__img" src="{W}{name}-before.webp" srcset="{W}{name}-before-500.webp 500w, {W}{name}-before.webp 900w" sizes="(max-width: 960px) 92vw, 460px" alt="{alt_before}" width="900" height="1088" loading="lazy"></div>'
+            '<span class="ba__label ba__label--before" aria-hidden="true">Before</span><span class="ba__label ba__label--after" aria-hidden="true">After</span>'
+            '<span class="ba__handle" aria-hidden="true"><span class="ba__knob"><svg class="ico"><use href="#i-arrows"/></svg></span></span>'
+            '<input class="ba__range" type="range" min="0" max="100" value="50" step="1" aria-label="Before and after comparison. Move to reveal more of the before or after photo">'
+            '</div>')
+
+def ba_pair(name, w, h, alt_before, alt_after):
+    def fig(side, alt, label):
+        return (f'<figure><img src="{W}{name}-{side}.webp" srcset="{W}{name}-{side}-400.webp 400w, {W}{name}-{side}.webp {w}w" '
+                f'sizes="(max-width: 760px) 46vw, 370px" alt="{alt}" width="{w}" height="{h}" loading="lazy"><figcaption>{label}</figcaption></figure>')
+    return '<div class="ba-pair reveal">' + fig('before', alt_before, 'Before') + fig('after', alt_after, 'After') + '</div>'
+
+def gallery(items):
+    return ('<ul class="work-gallery%s">' % (' work-gallery--two' if len(items) == 2 else '')
+            + ''.join(f'<li class="reveal"><img src="{W}{n}.webp" srcset="{W}{n}-400.webp 400w, {W}{n}.webp 720w" '
+                      f'sizes="(max-width: 760px) 92vw, (max-width: 1100px) 46vw, 270px" alt="{alt}" width="720" height="540" loading="lazy"></li>'
+                      for n, alt in items)
+            + '</ul>')
+
+def work_section(title_id, h2, intro, inner, mint=True):
+    cls = 'section section--mint work' if mint else 'section work'
+    return (f'<section class="{cls}" aria-labelledby="{title_id}"><div class="container">'
+            f'<div class="section-head reveal"><h2 id="{title_id}" class="section-title">{h2}</h2><p>{intro}</p></div>'
+            f'{inner}</div></section>')
+
 def inc(tagline, items):
     return '<p>%s</p><p class="room__inc"><strong>What&rsquo;s included:</strong> %s</p>' % (tagline, items)
 
@@ -204,7 +236,12 @@ PAGES = [
         ]) + '</div>'
       '<div class="dry-stat reveal"><span class="dry-stat__num">30</span><span class="dry-stat__unit">minutes</span>'
       '<p>Using the most advanced and environmentally friendly Texatherm<sup>&reg;</sup> cleaning machine and process means textiles will dry out in just 30 minutes, <strong>guaranteed.</strong></p></div>'
-      '</div></section>'),
+      '</div></section>'
+      + work_section('work-title', 'Recent carpet cleaning', 'Photos from recent All Cleanz carpet cleaning jobs.',
+        gallery([('carpet-rotary', 'Carpet cleaning machine at work in an empty room, with the cleaned carpet visibly lighter'),
+                 ('carpet-doormat', 'Carpet by a front door, half cleaned, showing the dirty and clean sections side by side'),
+                 ('carpet-lines', 'Freshly cleaned light carpet showing clean lines beside an uncleaned strip'),
+                 ('carpet-machine', 'All Cleanz carpet cleaning machine being set up')]))),
     'related': ['office-cleaning', 'end-of-tenancy-cleaning', 'deep-cleaning', 'domestic-cleaning'],
   },
   {
@@ -365,12 +402,24 @@ PAGES += [
     'title': 'Jet Washing Merseyside &amp; North West | All Cleanz',
     'desc': 'Jet washing for driveways, patios, paving, decking and more across Merseyside and the North West. Call or WhatsApp All Cleanz on 07721 938429.',
     'lead': 'Removing stains, dirt and grime to transform the appearance of the outside of your home. We specialise in cleaning exterior surfaces professionally, whether for a commercial or residential property.',
-    'img': ('services/jet', 720, 540, ['-400 400w', ' 720w'], 'Freshly jet washed block paving driveway'),
+    'img': ('services/jet-driveway', 1040, 780, ['-400 400w', '-720 720w', ' 1040w'], 'Red block paving driveway looking like new after jet washing by All Cleanz'),
     'wa': "Hi All Cleanz, I'd like a quote for jet washing please.",
     'body': lambda: split('about-title', 'Driveways, paths and patios',
         P('Jet washing is one of the most effective ways to remove built up dirt and grime from driveways, paths and patios, as the high pressure quickly removes dirt, moss and algae, as well as blasting out weeds rooted in the joints of the surface being cleaned.',
           'Clean surfaces last longer when washed and maintained over time.'),
-        'Suitable for', ticks(['Driveways', 'Patios', 'Paving', 'Stone walls', 'Decking', 'Fencing', 'Some flat roofing systems'])),
+        'Suitable for', ticks(['Driveways', 'Patios', 'Paving', 'Stone walls', 'Decking', 'Fencing', 'Some flat roofing systems']))
+      + work_section('work-title', 'See the difference',
+        'Real driveways and patios cleaned by All Cleanz. Drag the sliders to compare the before and after.',
+        '<div class="ba-grid">'
+        + ba_slider('drive-front', 'Herringbone block paving driveway covered in weeds and dirt before jet washing',
+                    'The same driveway after jet washing, with the weeds gone and the paving bright red again')
+        + ba_slider('drive-block', 'Grey block paving driveway with moss and green staining before jet washing',
+                    'The same driveway after jet washing, clean and dark grey')
+        + '</div>'
+        + ba_pair('drive-garage', 640, 800, 'Long red block paving driveway with weeds growing between the blocks, before jet washing',
+                  'The same driveway after jet washing, clean and bright red')
+        + gallery([('patio-sandstone', 'Sandstone patio freshly jet washed beside a house'),
+                   ('patio-slabs', 'Grey patio slabs being jet washed outside a patio door')])),
     'related': ['gutter-cleaning', 'window-cleaning', 'car-valeting', 'bbq-cleaning'],
   },
   {
@@ -381,11 +430,14 @@ PAGES += [
     'title': 'Gutter Cleaning Merseyside &amp; North West | All Cleanz',
     'desc': 'Residential and commercial gutter cleaning, drainpipe unblocking and soffit and fascia cleaning across Merseyside and the North West. Call 07721 938429.',
     'lead': 'When rainwater cannot run freely through your gutters it can lead to an overflow. This is the leading cause of water damage to properties in the UK. All Cleanz specialise in residential and commercial gutter cleaning.',
-    'img': ('services/gutter', 720, 540, ['-400 400w', ' 720w'], 'House guttering and downpipe'),
+    'img': ('services/gutter-vacuum', 1040, 780, ['-400 400w', '-720 720w', ' 1040w'], 'All Cleanz high reach gutter vacuum pole cleaning the gutter of a brick house'),
     'wa': "Hi All Cleanz, I'd like a quote for gutter cleaning please.",
     'body': lambda: split('about-title', 'So you don&rsquo;t have to deal with',
         ticks(['Structural damage', 'Leaking roof and basement', 'Dampness and mould growth', 'Pest infestation']),
-        'Services include', ticks(['Residential and commercial gutter cleaning', 'Unblocking drainpipes', 'Minor gutter repairs', 'Soffit and fascia cleaning', 'Conservatory roof cleaning'])),
+        'Services include', ticks(['Residential and commercial gutter cleaning', 'Unblocking drainpipes', 'Minor gutter repairs', 'Soffit and fascia cleaning', 'Conservatory roof cleaning']))
+      + work_section('work-title', 'See the difference', 'Soffit, fascia and downpipe cleaning by All Cleanz.',
+        ba_pair('gutter-fascia', 640, 640, 'White fascia and downpipe streaked with black dirt and algae before cleaning',
+                'The same fascia and downpipe after cleaning, bright white again')),
     'related': ['jet-washing', 'window-cleaning', 'after-build-cleaning', 'office-cleaning'],
   },
   {
