@@ -17,6 +17,17 @@ A static site: plain HTML, CSS and JavaScript with no build step.
 
 Pages are linked without `.html` (e.g. `/oven-cleaning`). The header and footer are copied from `index.html` into every page, so a change to either needs making on all pages. Clients and Testimonials in the menu link to those sections of the homepage.
 
+## Editing pages
+
+Every page except the homepage is generated, so edits go through the build scripts:
+
+1. Change the header, footer or a shared homepage section (why choose us, clients, testimonials, services grid) in `index.html`, or a page's copy in `tools/build_pages.py`.
+2. Run `python3 tools/build_pages.py . <version>`, where `<version>` is the `?v=` value for `styles.css` and `main.js` (e.g. `20261116-1`). Bump it whenever either file changes.
+3. Run `python3 tools/build_llms_full.py .` to refresh `llms-full.txt`.
+4. Add any new page to `sitemap.xml` and `llms.txt`.
+
+`404.html` is not generated: copy header or footer changes into it by hand.
+
 ## Structure
 
 ```
