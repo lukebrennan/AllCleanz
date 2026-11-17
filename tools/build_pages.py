@@ -1397,3 +1397,125 @@ write_page('review',
     'Leave Us a Review | All Cleanz',
     'Happy with your All Cleanz clean? Leave us a quick Google review. It really helps other people across Merseyside and the North West find us.',
     'WebPage', 'Leave us a review', 'Leave a Review', review_hero, review_body, robots='noindex, follow')
+
+# ---------- 9. FAQs ----------
+# Every answer comes from the business's own published wording (old website, Google Business Profile).
+# Not answered until the client confirms: prices, opening hours, insurance, DBS checks, payment methods.
+FAQ_GROUPS = [
+  ('About All Cleanz', [
+    ('Where are you based and what areas do you cover?',
+     'All Cleanz is based in Prescot, Merseyside, and provides domestic and commercial cleaning throughout Merseyside and the North West, '
+     'including ' + ', '.join(f'<a href="{l["slug"]}">{l["town"]}</a>' for l in LOCATIONS[:-1]) + f' and <a href="{LOCATIONS[-1]["slug"]}">{LOCATIONS[-1]["town"]}</a>. '
+     'See <a href="areas-we-cover">all the areas we cover</a>.'),
+    ('Do you clean homes or businesses?',
+     'Both. We offer a wide range of cleaning services for homes, offices and commercial properties, from a routine domestic clean to office cleaning contracts and builders cleans.'),
+    ('What cleaning services do you offer?',
+     'We offer ' + ', '.join(f'<a href="{x["slug"]}">{strip_tags(x["name"]).lower()}</a>' for x in sorted(PAGES, key=lambda x: ORDER.index(x['slug']))[:-1])
+     + f' and <a href="bbq-cleaning">BBQ cleaning</a>. See <a href="services">all our services</a>.'),
+    ('Can I book a regular clean or just a one off?',
+     'Either. We provide a bespoke service to suit every need and budget, from regular daily, weekly or monthly cleans to a one off clean.'),
+    ('How do you make sure the cleaning is done properly?',
+     'To ensure the highest levels of customer satisfaction we use quality control programmes, including on-site inspections and customer surveys. '
+     'For commercial contracts we also carry out frequent site supervision and quality checks.'),
+    ('What do your customers say about you?',
+     'We&rsquo;re rated 4.9 out of 5 on Google. You can <a href="https://share.google/Gg61WBgD1EcMRRVPn" target="_blank" rel="noopener">read our Google reviews</a> or see some of them on our <a href="about">About page</a>.'),
+    ('How do I get a quote?', QUOTE_A),
+  ]),
+  ('Home cleaning', [
+    ('What&rsquo;s included in an end of tenancy clean?',
+     'We use a comprehensive end of tenancy checklist approved by agencies. The clean takes place once all your belongings have been removed and covers every room, '
+     'including the kitchen, bathroom, bedrooms, living room, hallway and stairs. See the <a href="end-of-tenancy-cleaning">full end of tenancy checklist</a>.'),
+    ('Do I need to move my belongings for a deep clean?',
+     'No. Deep cleans are done with all your belongings in place, while still reaching those neglected areas. A deep clean is ideal before selling your property, after moving in, or before a new baby arrives. '
+     'See <a href="deep-cleaning">deep cleaning</a>.'),
+    ('What does a regular domestic clean include?',
+     'A daily, weekly or monthly clean tailored to your needs, room by room: from dusting and wiping surfaces, vacuuming and mopping, to cleaning the bathroom, '
+     'scrubbing the hob and removing rubbish. See exactly <a href="domestic-cleaning">what&rsquo;s included in each room</a>.'),
+    ('Can you clean before or after a party?',
+     'Yes. Our pre and post party cleaning is tailormade to suit your needs and includes weekend party cleaning too. See <a href="pre-post-party-cleaning">party cleaning</a>.'),
+  ]),
+  ('Carpets &amp; upholstery', [
+    ('How long do carpets take to dry?',
+     'Using the advanced, environmentally friendly Texatherm<sup>&reg;</sup> cleaning machine and process, carpets and upholstery dry in just 30 minutes, guaranteed.'),
+    ('What is Texatherm<sup>&reg;</sup>?',
+     'Texatherm<sup>&reg;</sup> is a patented cleaning process for carpets, upholstery and hard floors. Our Texatherm<sup>&reg;</sup> trained technicians can switch between several cleaning methods '
+     'from just one machine, including hot water extraction and low moisture cleaning, depending on what each carpet needs. '
+     'See <a href="carpet-upholstery-cleaning">carpet and upholstery cleaning</a>.'),
+    ('Can you clean office carpet tiles?',
+     'Yes. Office carpet tiles have watertight backings, so we use the Texatherm<sup>&reg;</sup> low moisture process, which gives superior results on commercial carpet tiles, '
+     'cuts cleaning time by up to 60% and causes less disruption because it&rsquo;s quieter.'),
+  ]),
+  ('Ovens, fridges &amp; BBQs', [
+    ('Can I use my oven straight after it&rsquo;s cleaned?',
+     'Yes. Our cleaning products and techniques leave your oven spotlessly clean with no damage and minimal chemical use, and it&rsquo;s safe to use straight after cleaning. '
+     'We disassemble the oven and deep clean the parts. See <a href="oven-cleaning">oven cleaning</a>.'),
+    ('What do you use to clean BBQs?',
+     'We use 100% non toxic, non caustic cleaning products to remove all grease, fat and carbon. We clean all types of gas and charcoal BBQs, and your BBQ is ready to use in 2 hours. '
+     'See <a href="bbq-cleaning">BBQ cleaning</a>.'),
+    ('Why should I have my fridge cleaned?',
+     'If a fridge isn&rsquo;t cleaned regularly it can become a breeding ground for bacteria that survive at low temperatures, causing smells and making food unsafe to eat. '
+     'See <a href="fridge-cleaning">fridge cleaning</a>.'),
+  ]),
+  ('Outside &amp; other services', [
+    ('What can you jet wash?',
+     'Driveways, patios, paving, stone walls, decking, fencing and some flat roofing systems. See <a href="jet-washing">jet washing</a>, with before and after photos.'),
+    ('What does gutter cleaning include?',
+     'Residential and commercial gutter cleaning, unblocking drainpipes, minor gutter repairs, soffit and fascia cleaning and conservatory roof cleaning. See <a href="gutter-cleaning">gutter cleaning</a>.'),
+    ('Do you clean the inside of windows?',
+     'Yes. Most window cleaners don&rsquo;t clean interior windows, but we provide both interior and exterior window cleaning for homes, offices, shops and other commercial spaces. '
+     'See <a href="window-cleaning">window cleaning</a>.'),
+    ('Do I need to bring my car to you for valeting?',
+     'No. Our car valeting is provided as a home service, so there&rsquo;s no need to wait in long queues. See <a href="car-valeting">car valeting</a>.'),
+    ('Do you clean after building work?',
+     'Yes. We provide after build cleaning for builders and home owners, including newly built buildings, post renovation cleaning and cleaning after repairs. '
+     'We&rsquo;ll discuss your needs and create a cleaning schedule that suits you. See <a href="after-build-cleaning">after build cleaning</a>.'),
+  ]),
+  ('Working for All Cleanz', [
+    ('Are you hiring?',
+     'Our cleaning team works flexible hours throughout the week on domestic and commercial jobs. You can apply as a domestic cleaner, cleaning supervisor or car valeter on our '
+     '<a href="join-the-team">Join the Team</a> page.'),
+  ]),
+]
+ALL_FAQS = [qa for _, items in FAQ_GROUPS for qa in items]
+faq_url = SITE + 'faq'
+faq_body = ''.join(
+    f'''
+    <section class="section{' section--mint' if i % 2 == 0 else ''}" aria-labelledby="faq-{i}">
+      <div class="container">
+        <div class="section-head reveal"><h2 id="faq-{i}" class="section-title section-title--sm">{group}</h2></div>
+        {faq(items)}
+      </div>
+    </section>''' for i, (group, items) in enumerate(FAQ_GROUPS)) + cta_band('Got a question we haven&rsquo;t answered?', "Hi All Cleanz, I have a question: ")
+faq_hero = legal_hero.replace('Privacy <em>Policy</em>', 'Frequently Asked <em>Questions</em>').replace(
+    '<span class="hero__title-sm">Last updated 13 November 2026</span>', '<span class="hero__title-sm">Cleaning questions, answered</span>').replace(
+    '<li><span aria-current="page">Privacy Policy</span></li>', '<li><span aria-current="page">FAQs</span></li>')
+write_page('faq',
+    'Cleaning FAQs | All Cleanz | Prescot, Merseyside',
+    'Answers to common questions about All Cleanz: areas covered, end of tenancy and deep cleans, carpet drying times, oven and BBQ cleaning, jet washing and more.',
+    'FAQPage', 'Frequently asked questions', 'FAQs', faq_hero, faq_body,
+    extra={'mainEntity': [
+        {'@type': 'Question', 'name': strip_tags(q_), 'acceptedAnswer': {'@type': 'Answer', 'text': strip_tags(a_)}}
+        for q_, a_ in ALL_FAQS]})
+
+# Homepage: a short FAQ section, generated from the same answers
+HOME_FAQ_QS = ['Where are you based and what areas do you cover?', 'Can I book a regular clean or just a one off?',
+               'How long do carpets take to dry?', 'Do I need to move my belongings for a deep clean?', 'How do I get a quote?']
+home_faq = [next(qa for qa in ALL_FAQS if qa[0] == q_) for q_ in HOME_FAQ_QS]
+assert len(home_faq) == len(HOME_FAQ_QS)
+block = f'''<!-- FAQ (generated by tools/build_pages.py) -->
+    <section class="section section--mint" aria-labelledby="home-faq-title">
+      <div class="container">
+        <div class="section-head reveal"><h2 id="home-faq-title" class="section-title">Frequently asked questions</h2></div>
+        {faq(home_faq)}
+        <p class="services__more reveal"><a href="faq">See all our FAQs</a></p>
+      </div>
+    </section>
+
+    '''
+path = ROOT + '/index.html'
+html = open(path).read()
+if '<!-- FAQ (generated' in html:
+    html = re.sub(r'<!-- FAQ \(generated.*?(?=<!-- AREAS -->)', block, html, count=1, flags=re.S)
+else:
+    html = html.replace('<!-- AREAS -->', block + '<!-- AREAS -->', 1)
+open(path, 'w').write(html)
