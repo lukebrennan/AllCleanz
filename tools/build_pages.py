@@ -714,7 +714,8 @@ def page_head(title, desc, url, ld):
 </head>
 '''
 
-def page_hero(crumb, h1, sub, lead, img, wa_text, meta_link):
+def page_hero(crumb, h1, sub, lead, img, wa_text, meta_link, parent=None):
+    parent_li = '<li><a href="%s">%s</a></li>\n              ' % (parent[1], parent[0]) if parent else ''
     src, w, h, sets, alt = img
     base = 'assets/img/' + src
     srcs = ', '.join('%s%s.webp %s' % (base, x.split(' ')[0], x.split(' ')[1]) for x in sets)
@@ -734,7 +735,7 @@ def page_hero(crumb, h1, sub, lead, img, wa_text, meta_link):
           <nav class="crumbs" aria-label="Breadcrumb">
             <ol>
               <li><a href="./">Home</a></li>
-              <li><span aria-current="page">{crumb}</span></li>
+              {parent_li}<li><span aria-current="page">{crumb}</span></li>
             </ol>
           </nav>
           <h1 id="page-title" class="hero__title">
@@ -787,17 +788,15 @@ def cta_band(title, wa_text):
     </section>
   '''
 
-def crumbs_ld(name, url):
+def crumbs_ld(name, url, parent=None):
+    items = [('Home', SITE)] + ([(parent[0], SITE + parent[1])] if parent else []) + [(name, url)]
     return {
         '@type': 'BreadcrumbList',
         '@id': url + '#breadcrumb',
-        'itemListElement': [
-            {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE},
-            {'@type': 'ListItem', 'position': 2, 'name': name, 'item': url},
-        ],
+        'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': u} for i, (n, u) in enumerate(items)],
     }
 
-def write_page(slug, title, desc, ld_type, ld_name, crumb, hero, body, extra=None):
+def write_page(slug, title, desc, ld_type, ld_name, crumb, hero, body, extra=None, parent=None, nodes=()):
     url = SITE + slug
     page = {'@type': ld_type, '@id': url + '#webpage', 'url': url, 'name': ld_name,
             'description': strip_tags(desc), 'inLanguage': 'en-GB',
@@ -805,7 +804,7 @@ def write_page(slug, title, desc, ld_type, ld_name, crumb, hero, body, extra=Non
             'breadcrumb': {'@id': url + '#breadcrumb'}}
     if extra:
         page.update(extra)
-    ld = {'@context': 'https://schema.org', '@graph': [page, crumbs_ld(crumb, url)]}
+    ld = {'@context': 'https://schema.org', '@graph': [page, crumbs_ld(crumb, url, parent)] + list(nodes)}
     top = chrome_top.replace('<li><a href="%s">' % slug, '<li><a href="%s" aria-current="page">' % slug, 1)
     top = top.replace('<a href="%s" class="nav__parent">' % slug, '<a href="%s" class="nav__parent" aria-current="page">' % slug, 1)
     html = page_head(title, desc, url, ld) + top + hero + body + chrome_bottom
@@ -1047,3 +1046,147 @@ write_page('privacy-policy',
     'How All Cleanz collects, uses and protects your personal information when you use our website, ask for a quote or apply to join the team.',
     'WebPage', 'Privacy Policy', 'Privacy Policy',
     legal_hero, PRIVACY)
+
+# ---------- 5. Location pages ----------
+# Prescot has no page of its own: the homepage targets it, so a second page would compete with it.
+# Distances are straight-line from Prescot town centre. Neighbourhood lists are geography,
+# covered by the business's stated service area (Merseyside and the North West).
+AREAS = ('Areas we cover', 'areas-we-cover')
+
+def faq(items):
+    out = '<div class="faq">'
+    for q_, a_ in items:
+        out += f'<details class="faq__item reveal"><summary>{q_}</summary><div class="faq__a"><p>{a_}</p></div></details>'
+    return out + '</div>'
+
+def faq_ld(url, items):
+    return {'@type': 'FAQPage', '@id': url + '#faq', 'mainEntity': [
+        {'@type': 'Question', 'name': strip_tags(q_), 'acceptedAnswer': {'@type': 'Answer', 'text': strip_tags(a_)}}
+        for q_, a_ in items]}
+
+QUOTE_A = ('Call or WhatsApp us on <a href="tel:+447721938429">07721 938429</a>, email '
+           '<a href="mailto:enquiries@allcleanznorthwest.co.uk">enquiries@allcleanznorthwest.co.uk</a>, '
+           'or fill in our <a href="./#quote-form">online quote form</a>.')
+CARPET_A = ('Using the Texatherm<sup>&reg;</sup> cleaning machine and process, carpets and upholstery dry in just 30 minutes, guaranteed. '
+            'See our <a href="carpet-upholstery-cleaning">carpet and upholstery cleaning</a> page.')
+REGULAR_A = ('Yes. We provide a bespoke service to suit every need and budget, from regular daily, weekly or monthly cleans to a one off. '
+             'See our <a href="domestic-cleaning">domestic cleaning</a> page for what&rsquo;s included.')
+
+LOCATIONS = [
+  {
+    'slug': 'cleaners-huyton', 'town': 'Huyton', 'miles': 2,
+    'img': ('work/drive-front-after', 900, 1088, ['-500 500w', ' 900w'], 'Clean red herringbone block paving driveway in front of a house after jet washing'),
+    'lead': 'All Cleanz is a domestic and commercial cleaning company based just down the road in Prescot, about 2 miles from Huyton. From regular home cleans to end of tenancy, carpet and office cleaning, we look after homes and businesses across Huyton.',
+    'story': ('We already work in Huyton: our clients include King George V Sports Complex on Longview Lane.',
+              'Whether you need a regular daily, weekly or monthly clean or just a one off, you can count on us. With All Cleanz, clients know exactly what to expect: professionalism, efficiency and exceptional results.'),
+    'nearby': ['Huyton village', 'Roby', 'Page Moss', 'Swanside', 'Bowring Park', 'Longview'],
+    'faq': [
+      ('Do you cover Huyton?', 'Yes. All Cleanz is based in Prescot, about 2 miles from Huyton, and we clean homes and businesses across Huyton and the rest of Merseyside and the North West.'),
+      ('Do you clean sports clubs and community venues?', 'Yes. Our clients include King George V Sports Complex in Huyton and Eccleston Park Lawn Tennis Club. See our <a href="office-cleaning">office and commercial cleaning</a> page.'),
+      ('How quickly will my carpets dry?', CARPET_A),
+      ('How do I get a quote?', QUOTE_A),
+    ],
+    'desc': 'Domestic and commercial cleaners in Huyton, based 2 miles away in Prescot. End of tenancy, deep cleans, carpets, offices and more. Call 07721 938429.',
+  },
+  {
+    'slug': 'cleaners-st-helens', 'town': 'St Helens', 'miles': 3,
+    'img': ('services/end-of-tenancy-room', 1200, 900, ['-400 400w', '-720 720w', ' 1200w'], 'Bright, empty room with a fireplace and clean wooden floor after an end of tenancy clean'),
+    'lead': 'Looking for reliable cleaners in St Helens? All Cleanz is based in neighbouring Prescot, about 3 miles from St Helens town centre, and provides professional domestic and commercial cleaning across St Helens.',
+    'story': ('From a routine domestic clean to a thorough top to bottom end of tenancy clean, our expert cleaners are happy to take on any cleaning job. We clean private homes, rental properties, offices and commercial premises.',
+              'With high standards and reasonable prices, All Cleanz offer great value for money, and our quality control includes on-site inspections and customer surveys.'),
+    'nearby': ['St Helens town centre', 'Eccleston', 'Thatto Heath', 'Sutton', 'Parr', 'Rainhill', 'Haydock'],
+    'faq': [
+      ('Do you cover St Helens?', 'Yes. We are based in Prescot, about 3 miles from St Helens town centre, and clean homes and businesses across St Helens and the rest of Merseyside and the North West.'),
+      ('Do you do end of tenancy cleans in St Helens?', 'Yes. We use a comprehensive end of tenancy cleaning checklist approved by agencies, so your landlord receives a sparkly clean property and you get your deposit back. See our <a href="end-of-tenancy-cleaning">end of tenancy cleaning</a> page.'),
+      ('Can I book a regular clean?', REGULAR_A),
+      ('How do I get a quote?', QUOTE_A),
+    ],
+    'desc': 'Domestic and commercial cleaners in St Helens, based 3 miles away in Prescot. End of tenancy, deep cleans, carpets, offices and more. Call 07721 938429.',
+  },
+  {
+    'slug': 'cleaners-liverpool', 'town': 'Liverpool', 'miles': 8,
+    'img': ('services/office', 720, 540, ['-400 400w', ' 720w'], 'Gloved hand wiping a desk and keyboard during an office clean'),
+    'lead': 'All Cleanz provides professional domestic and commercial cleaning across Liverpool, from our base in Prescot, about 8 miles from the city centre. Homes, rental properties, offices and commercial premises: we have the experience and skills to tackle just about every type of cleaning job.',
+    'story': ('Our range of services is tailored to the requirements of each home, business and setting. We offer flexible office cleaning contracts, thorough end of tenancy and deep cleans, and regular daily, weekly or monthly home cleaning.',
+              'Our staff are trusted, hard-working and highly trained cleaners, and we reinforce their training with frequent site supervision and quality checks.'),
+    'nearby': ['Knotty Ash', 'West Derby', 'Childwall', 'Gateacre', 'Woolton', 'Wavertree', 'Liverpool city centre'],
+    'faq': [
+      ('Do you cover Liverpool?', 'Yes. We are based in Prescot, about 8 miles from Liverpool city centre, and clean homes and businesses across Liverpool and the rest of Merseyside and the North West.'),
+      ('Do you clean offices in Liverpool?', 'Yes. We offer flexible, professional cleaning contracts: a daily office clean, a few hours per week, or periodical cleans to carpets and upholstery. See our <a href="office-cleaning">office cleaning</a> page.'),
+      ('Can I book a regular clean?', REGULAR_A),
+      ('How do I get a quote?', QUOTE_A),
+    ],
+    'desc': 'Domestic and commercial cleaners covering Liverpool from our base in Prescot. Offices, end of tenancy, deep cleans, carpets and more. Call 07721 938429.',
+  },
+]
+
+def other_areas(current):
+    links = ['<a href="./">Prescot</a>'] + [f'<a href="{l["slug"]}">{l["town"]}</a>' for l in LOCATIONS if l['slug'] != current]
+    return ', '.join(links[:-1]) + ' and ' + links[-1]
+
+for L in LOCATIONS:
+    town, url = L['town'], SITE + L['slug']
+    wa_text = "Hi All Cleanz, I'd like a quote for a clean in %s please. I'm looking for: " % town
+    body = (split('local-title', f'Your local cleaning company in {town}', P(*L['story']),
+                  f'Areas we cover around {town}', ticks(L['nearby']) + '<p class="note__more">Not listed? We work right across Merseyside and the North West, so just ask.</p>')
+            + f'''
+    <section class="section services" aria-labelledby="list-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="list-title" class="section-title">Cleaning services in {town}</h2>
+          <p>Every one of our services is available in {town}. Choose a service to find out more.</p>
+        </div>
+        {GRID}
+      </div>
+    </section>
+    {TESTIMONIALS}
+    <section class="section section--mint" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head reveal"><h2 id="faq-title" class="section-title">Cleaners in {town}: your questions</h2></div>
+        {faq(L['faq'])}
+      </div>
+    </section>
+    {cta_band('Get a quote for a clean in ' + town, wa_text)}
+    <section class="section areas-more" aria-label="Other areas">
+      <div class="container"><p class="services__more reveal">We also cover {other_areas(L['slug'])}. <a href="areas-we-cover">See all the areas we cover</a>.</p></div>
+    </section>
+''')
+    service = {'@type': 'Service', '@id': url + '#service', 'name': f'Cleaning services in {town}',
+               'serviceType': 'Domestic and commercial cleaning', 'url': url,
+               'provider': {'@type': 'LocalBusiness', '@id': SITE + '#business', 'name': 'All Cleanz', 'url': SITE, 'telephone': '+447721938429'},
+               'areaServed': {'@type': 'City', 'name': town}}
+    write_page(L['slug'],
+        f'Cleaners in {town} | Domestic &amp; Commercial | All Cleanz',
+        L['desc'], 'WebPage', f'Cleaners in {town}', town,
+        page_hero(town, ('Cleaners in', town), 'Domestic &amp; commercial cleaning', L['lead'], L['img'], wa_text,
+                  f'<a href="./#quote-form" class="hero__textlink">Request a quote online {ICON % "arrow"}</a>', parent=(AREAS[0], AREAS[1])),
+        body, extra={'mainEntity': {'@id': url + '#service'}}, parent=(AREAS[0], AREAS[1]),
+        nodes=[service, faq_ld(url, L['faq'])])
+
+# Areas we cover
+area_cards = ('<ul class="rooms rooms--areas">'
+    '<li class="room reveal"><h3><a href="./">Prescot</a></h3><p>Our home base. Domestic and commercial cleaning across Prescot, Whiston, Rainhill, Eccleston Park, Knowsley Village and Cronton.</p></li>'
+    + ''.join(f'<li class="room reveal"><h3><a href="{l["slug"]}">{l["town"]}</a></h3><p>About {l["miles"]} miles from our base. Covering {", ".join(l["nearby"][:-1])} and {l["nearby"][-1]}.</p></li>' for l in LOCATIONS)
+    + '</ul>')
+write_page('areas-we-cover',
+    'Areas We Cover | Cleaners Across Merseyside | All Cleanz',
+    'All Cleanz is based in Prescot and provides domestic and commercial cleaning across Merseyside and the North West, including Huyton, St Helens and Liverpool.',
+    'CollectionPage', 'Areas we cover', 'Areas we cover',
+    page_hero('Areas we cover', ('Areas We', 'Cover'), 'Merseyside &amp; the North West',
+        'All Cleanz is based in Prescot and provides professional domestic and commercial cleaning for homes, offices and commercial properties throughout Merseyside and the North West.',
+        ('hero-cleaner', 1152, 960, ['-500 500w', '-800 800w', ' 1152w'], 'All Cleanz cleaner in uniform wiping down shower tiles'),
+        "Hi All Cleanz, I'd like a quote please. I'm looking for: ",
+        f'<a href="services" class="hero__textlink">Explore our services {ICON % "arrow"}</a>'),
+    f'''<section class="section section--mint" aria-labelledby="areas-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="areas-title" class="section-title">Where we clean</h2>
+          <p>Don&rsquo;t see your area? We work right across Merseyside and the North West, so call or WhatsApp us on <a href="tel:+447721938429">07721 938429</a> to check.</p>
+        </div>
+        {area_cards}
+      </div>
+    </section>
+    {WHY}''' + cta_band('Get a quote from All Cleanz', "Hi All Cleanz, I'd like a quote please. I'm looking for: "),
+    extra={'mainEntity': {'@type': 'ItemList', 'itemListElement': [
+        {'@type': 'ListItem', 'position': 1, 'name': 'Prescot', 'url': SITE}] + [
+        {'@type': 'ListItem', 'position': i + 2, 'name': l['town'], 'url': SITE + l['slug']} for i, l in enumerate(LOCATIONS)]}})

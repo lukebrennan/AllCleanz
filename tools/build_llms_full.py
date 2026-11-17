@@ -7,7 +7,7 @@ ROOT = sys.argv[1]
 B = 'https://www.allcleanz.co.uk/'
 ORDER = ['index', 'services', 'end-of-tenancy-cleaning', 'deep-cleaning', 'domestic-cleaning', 'carpet-upholstery-cleaning',
          'office-cleaning', 'oven-cleaning', 'after-build-cleaning', 'pre-post-party-cleaning', 'fridge-cleaning',
-         'window-cleaning', 'car-valeting', 'jet-washing', 'gutter-cleaning', 'bbq-cleaning', 'about', 'join-the-team', 'privacy-policy']
+         'window-cleaning', 'car-valeting', 'jet-washing', 'gutter-cleaning', 'bbq-cleaning', 'areas-we-cover', 'cleaners-huyton', 'cleaners-st-helens', 'cleaners-liverpool', 'about', 'join-the-team', 'privacy-policy']
 SKIP = {'form', 'nav', 'script', 'style', 'svg', 'button', 'noscript'}
 BLOCK = {'h1': '# ', 'h2': '## ', 'h3': '### ', 'p': '', 'li': '- ', 'blockquote': '> ', 'figcaption': '', 'dt': '', 'dd': ''}
 

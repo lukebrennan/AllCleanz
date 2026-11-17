@@ -167,6 +167,42 @@
     </image:image>
   </url>
   <url>
+    <loc>https://www.allcleanz.co.uk/areas-we-cover</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/hero-cleaner.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.allcleanz.co.uk/cleaners-huyton</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/work/drive-front-after.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.allcleanz.co.uk/cleaners-st-helens</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/services/end-of-tenancy-room.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.allcleanz.co.uk/cleaners-liverpool</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/services/office.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://www.allcleanz.co.uk/about</loc>
     <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>

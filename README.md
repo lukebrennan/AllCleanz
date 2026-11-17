@@ -12,6 +12,7 @@ A static site: plain HTML, CSS and JavaScript with no build step.
 | 14 service pages, e.g. `end-of-tenancy-cleaning.html`, `oven-cleaning.html`, `bbq-cleaning.html` | One page per service, copy taken from the matching page on the old Wix site. Each has its own title, description, canonical URL and `Service` + `BreadcrumbList` JSON-LD |
 | `services.html` | All 14 services in one grid |
 | `about.html` | About copy, clients and testimonials |
+| `areas-we-cover.html`, `cleaners-huyton.html`, `cleaners-st-helens.html`, `cleaners-liverpool.html` | Location pages. Prescot deliberately has no page of its own: the homepage targets "cleaners prescot", and a second page would compete with it. Each town page has its own local copy, nearby areas, FAQs (with `FAQPage` schema) and distance from Prescot. To add a town, add an entry to `LOCATIONS` in `tools/build_pages.py`, then the sitemap, `llms.txt` and the homepage Areas section |
 | `join-the-team.html` | Job application form (domestic cleaner, cleaning supervisor, car valeter) |
 | `404.html` | Not found page |
 
