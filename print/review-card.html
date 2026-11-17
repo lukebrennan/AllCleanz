@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>All Cleanz review card</title>
+<style>
+  @font-face { font-family: "Poppins"; src: url("../assets/fonts/poppins-800-latin.woff2") format("woff2"); font-weight: 800; }
+  @font-face { font-family: "Poppins"; src: url("../assets/fonts/poppins-900-italic-latin.woff2") format("woff2"); font-weight: 900; font-style: italic; }
+  @font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin.woff2") format("woff2"); font-weight: 400 700; }
+  @page { size: 105mm 148mm; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font-family: "Inter", sans-serif; color: #13261f; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .card { width: 105mm; height: 148mm; display: flex; flex-direction: column; overflow: hidden; background: #fff; }
+  .top { position: relative; padding: 9mm 8mm 13mm; text-align: center; color: #fff;
+         background: linear-gradient(150deg, #4cc095 0%, #43b288 45%, #1f7a57 100%); }
+  .top img { width: 58mm; height: auto; display: block; margin: 0 auto 5mm; background: #fff; border-radius: 4mm; padding: 2.5mm 4mm; }
+  .top h1 { margin: 0; font-family: "Poppins", sans-serif; font-weight: 900; font-style: italic; text-transform: uppercase;
+            font-size: 7.4mm; line-height: 1; letter-spacing: -.1mm; text-shadow: .5mm .5mm 0 #1f7a57; }
+  .top h1 span { color: #0f3b2e; text-shadow: .5mm .5mm 0 #fff; }
+  .wave { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 8mm; }
+  .body { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2mm 9mm 0; text-align: center; }
+  .body p { margin: 0 0 4mm; font-size: 3.6mm; line-height: 1.4; }
+  .body p strong { font-family: "Poppins", sans-serif; font-weight: 800; color: #1f7a57; }
+  .qr { width: 42mm; height: 42mm; }
+  .scan { margin-top: 1.5mm; font-size: 3mm; color: #6b7b75; }
+  .stars { color: #f2b600; font-size: 4.6mm; letter-spacing: 1mm; margin-bottom: 2mm; }
+  .foot { padding: 4mm 6mm; background: #0f3b2e; color: #fff; text-align: center; font-size: 3.3mm; font-weight: 600; letter-spacing: .1mm; }
+  .foot span { color: #5fe08f; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <img src="../assets/img/logo-header.webp" alt="All Cleanz">
+      <h1>Thank you for <span>choosing us</span></h1>
+      <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path fill="#fff" d="M0 40c240 50 480 50 720 20S1200 0 1440 30v60H0Z"/></svg>
+    </div>
+    <div class="body">
+      <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p><strong>Happy with your clean?</strong><br>A quick Google review really helps other people find us. It only takes a minute.</p>
+      <img class="qr" src="review-qr.svg" alt="QR code to leave All Cleanz a Google review">
+      <div class="scan">Scan with your phone camera</div>
+    </div>
+    <div class="foot">07721 938429 <span>&bull;</span> www.allcleanz.co.uk</div>
+  </div>
+</body>
+</html>

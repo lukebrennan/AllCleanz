@@ -14,6 +14,8 @@ A static site: plain HTML, CSS and JavaScript with no build step.
 | `about.html` | About copy, clients and testimonials |
 | `areas-we-cover.html` and `cleaners-*.html` (Whiston, Rainhill, Huyton, St Helens, Kirkby, Widnes, Liverpool, Warrington) | Location pages. Prescot deliberately has no page of its own: the homepage targets "cleaners prescot", and a second page would compete with it. Each town page has its own local copy, nearby areas, FAQs (with `FAQPage` schema) and straight-line distance from Prescot. **To add or turn off a town**, add or delete its entry in `LOCATIONS` in `tools/build_pages.py` and re-run the build: the page, the homepage Areas links, the Areas page card, the sitemap and `llms.txt` all update. If a removed page was already live, add a 301 from it to `/areas-we-cover` in `netlify.toml` |
 | `join-the-team.html` | Job application form (domestic cleaner, cleaning supervisor, car valeter) |
+| `our-work.html` | Gallery of the client's before and after photos: driveways and patios, ovens, gutters, carpets and stairs |
+| `review.html` | "Leave us a review" page with a button and QR code that open the All Cleanz Google review form. `noindex`, not in the sitemap; linked from the footer |
 | `404.html` | Not found page |
 
 Pages are linked without `.html` (e.g. `/oven-cleaning`). The header and footer are copied from `index.html` into every page, so a change to either needs making on all pages. Clients and Testimonials in the menu link to those sections of the homepage.
@@ -28,6 +30,16 @@ Every page except the homepage is generated, so edits go through the build scrip
 4. Add any new page to `sitemap.xml` and `llms.txt`.
 
 `404.html` is not generated: copy header or footer changes into it by hand.
+
+## Print materials (`print/`)
+
+Not part of the website (hidden on Netlify at launch):
+
+- `review-card.pdf` / `.png`: A6 thank-you card with a QR code to the Google review form, ready to print or send on WhatsApp. Edit `review-card.html` and re-render with Playwright if the wording changes.
+- `review-qr.png` / `.svg`: the review QR code on its own (for business cards, van stickers, invoices)
+- `website-qr.png`: QR code for https://www.allcleanz.co.uk/
+
+The review link is `https://search.google.com/local/writereview?placeid=ChIJE3yGEImFwWURhPb_ciz941g`, built from the Google Business Profile's place ID.
 
 ## Structure
 

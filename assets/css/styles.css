@@ -1078,6 +1078,25 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
 .areas .section-head { margin-bottom: 0; }
 .areas-more { padding-top: 0; }
 
+/* Our Work and review pages */
+.ba-grid--one { grid-template-columns: 1fr; }
+.work-gallery--one { grid-template-columns: 1fr; max-width: 760px; margin-inline: auto; }
+.work .section-head a, .results__more a { color: var(--green-700); font-weight: 700; }
+.results__more { margin: 18px 0 0; }
+.results__more a { display: inline-flex; align-items: center; gap: .4em; }
+.review-card {
+  max-width: 720px; margin-inline: auto; padding: clamp(28px, 5vw, 56px);
+  text-align: center; border-radius: var(--radius-lg); background: var(--white);
+  border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.review-card__btns { justify-content: center; margin: 26px 0 8px; }
+.review-card__qr { margin: 28px auto 0; }
+.review-card__qr img { width: 220px; height: 220px; margin: 0 auto; border-radius: 12px; }
+.review-card__qr figcaption { margin-top: 8px; color: var(--muted); font-size: .92rem; }
+.review-card__note { margin: 26px 0 0; font-size: .95rem; color: var(--muted); }
+.review-card__note a { color: var(--green-700); font-weight: 700; }
+@media (max-width: 760px) { .review-card__btns .btn { flex: 1 1 100%; } }
+
 /* ---------- Preview passcode screen (remove at launch) ---------- */
 html.gate-locked body { overflow: hidden; }
 html.gate-locked body > :not(.gate) { display: none !important; }

@@ -96,10 +96,11 @@ ALL_ROOMS = [
 # ---------- Real work: before/after sliders, side-by-side pairs, photo galleries ----------
 W = 'assets/img/work/'
 
-def ba_slider(name, alt_before, alt_after):
+def ba_slider(name, alt_before, alt_after, base=None):
+    W = base or globals()['W']
     return (f'<div class="ba reveal" style="--pos: 50%">'
-            f'<img class="ba__img" src="{W}{name}-after.webp" srcset="{W}{name}-after-500.webp 500w, {W}{name}-after.webp 900w" sizes="(max-width: 960px) 92vw, 460px" alt="{alt_after}" width="900" height="1088" loading="lazy">'
-            f'<div class="ba__before"><img class="ba__img" src="{W}{name}-before.webp" srcset="{W}{name}-before-500.webp 500w, {W}{name}-before.webp 900w" sizes="(max-width: 960px) 92vw, 460px" alt="{alt_before}" width="900" height="1088" loading="lazy"></div>'
+            f'<img class="ba__img" src="{W}{name}-after.webp" srcset="{W}{name}-after-500.webp 500w, {W}{name}-after-700.webp 700w, {W}{name}-after.webp 900w" sizes="(max-width: 960px) 92vw, 460px" alt="{alt_after}" width="900" height="1088" loading="lazy">'
+            f'<div class="ba__before"><img class="ba__img" src="{W}{name}-before.webp" srcset="{W}{name}-before-500.webp 500w, {W}{name}-before-700.webp 700w, {W}{name}-before.webp 900w" sizes="(max-width: 960px) 92vw, 460px" alt="{alt_before}" width="900" height="1088" loading="lazy"></div>'
             '<span class="ba__label ba__label--before" aria-hidden="true">Before</span><span class="ba__label ba__label--after" aria-hidden="true">After</span>'
             '<span class="ba__handle" aria-hidden="true"><span class="ba__knob"><svg class="ico"><use href="#i-arrows"/></svg></span></span>'
             '<input class="ba__range" type="range" min="0" max="100" value="50" step="1" aria-label="Before and after comparison. Move to reveal more of the before or after photo">'
@@ -112,9 +113,10 @@ def ba_pair(name, w, h, alt_before, alt_after):
     return '<div class="ba-pair reveal">' + fig('before', alt_before, 'Before') + fig('after', alt_after, 'After') + '</div>'
 
 def gallery(items):
+    sizes = '(max-width: 760px) 46vw, 370px' if len(items) == 2 else '(max-width: 1100px) 46vw, 270px'
     return ('<ul class="work-gallery%s">' % (' work-gallery--two' if len(items) == 2 else '')
             + ''.join(f'<li class="reveal"><img src="{W}{n}.webp" srcset="{W}{n}-400.webp 400w, {W}{n}.webp 720w" '
-                      f'sizes="(max-width: 760px) 92vw, (max-width: 1100px) 46vw, 270px" alt="{alt}" width="720" height="540" loading="lazy"></li>'
+                      f'sizes="{sizes}" alt="{alt}" width="720" height="540" loading="lazy"></li>'
                       for n, alt in items)
             + '</ul>')
 
@@ -283,8 +285,8 @@ PAGES = [
       + ticks(['Fire safety', 'Better performance and long life, saving you money on repairs', 'Free from oil, debris and bacteria'])
       + '<p class="results__sign">Keep the heat out of the kitchen with an All Cleanz oven clean.</p></div>'
       '<div class="ba reveal" style="--pos: 50%">'
-      '<img class="ba__img" src="assets/img/before-after/oven-after.webp" srcset="assets/img/before-after/oven-after-500.webp 500w, assets/img/before-after/oven-after.webp 900w" sizes="(max-width: 960px) 92vw, 520px" alt="Oven after cleaning by All Cleanz, with a clear glass door and clean shelves" width="900" height="1088" loading="lazy">'
-      '<div class="ba__before"><img class="ba__img" src="assets/img/before-after/oven-before.webp" srcset="assets/img/before-after/oven-before-500.webp 500w, assets/img/before-after/oven-before.webp 900w" sizes="(max-width: 960px) 92vw, 520px" alt="The same oven before cleaning, with the door glass coated in baked-on grease" width="900" height="1088" loading="lazy"></div>'
+      '<img class="ba__img" src="assets/img/before-after/oven-after.webp" srcset="assets/img/before-after/oven-after-500.webp 500w, assets/img/before-after/oven-after-700.webp 700w, assets/img/before-after/oven-after.webp 900w" sizes="(max-width: 960px) 92vw, 520px" alt="Oven after cleaning by All Cleanz, with a clear glass door and clean shelves" width="900" height="1088" loading="lazy">'
+      '<div class="ba__before"><img class="ba__img" src="assets/img/before-after/oven-before.webp" srcset="assets/img/before-after/oven-before-500.webp 500w, assets/img/before-after/oven-before-700.webp 700w, assets/img/before-after/oven-before.webp 900w" sizes="(max-width: 960px) 92vw, 520px" alt="The same oven before cleaning, with the door glass coated in baked-on grease" width="900" height="1088" loading="lazy"></div>'
       '<span class="ba__label ba__label--before" aria-hidden="true">Before</span><span class="ba__label ba__label--after" aria-hidden="true">After</span>'
       '<span class="ba__handle" aria-hidden="true"><span class="ba__knob"><svg class="ico"><use href="#i-arrows"/></svg></span></span>'
       '<input class="ba__range" type="range" min="0" max="100" value="50" step="1" aria-label="Before and after comparison. Move to reveal more of the before or after photo">'
@@ -670,7 +672,7 @@ GRID = GRID[:GRID.index('</ul>') + 5]
 SERVICES_MORE = index[index.index('<p class="services__more reveal">'):]
 SERVICES_MORE = SERVICES_MORE[:SERVICES_MORE.index('</p>') + 4]
 
-def page_head(title, desc, url, ld):
+def page_head(title, desc, url, ld, robots='index, follow, max-image-preview:large'):
     return f'''<!DOCTYPE html>
 <html lang="en-GB" class="no-js">
 <head>
@@ -681,7 +683,7 @@ def page_head(title, desc, url, ld):
   <title>{title}</title>
   <meta name="description" content="{desc}">
   <link rel="canonical" href="{url}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="{robots}">
   <meta name="theme-color" content="#43B288">
 
   <meta property="og:type" content="website">
@@ -796,7 +798,7 @@ def crumbs_ld(name, url, parent=None):
         'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': u} for i, (n, u) in enumerate(items)],
     }
 
-def write_page(slug, title, desc, ld_type, ld_name, crumb, hero, body, extra=None, parent=None, nodes=()):
+def write_page(slug, title, desc, ld_type, ld_name, crumb, hero, body, extra=None, parent=None, nodes=(), robots='index, follow, max-image-preview:large'):
     url = SITE + slug
     page = {'@type': ld_type, '@id': url + '#webpage', 'url': url, 'name': ld_name,
             'description': strip_tags(desc), 'inLanguage': 'en-GB',
@@ -807,7 +809,7 @@ def write_page(slug, title, desc, ld_type, ld_name, crumb, hero, body, extra=Non
     ld = {'@context': 'https://schema.org', '@graph': [page, crumbs_ld(crumb, url, parent)] + list(nodes)}
     top = chrome_top.replace('<li><a href="%s">' % slug, '<li><a href="%s" aria-current="page">' % slug, 1)
     top = top.replace('<a href="%s" class="nav__parent">' % slug, '<a href="%s" class="nav__parent" aria-current="page">' % slug, 1)
-    html = page_head(title, desc, url, ld) + top + hero + body + chrome_bottom
+    html = page_head(title, desc, url, ld, robots) + top + hero + body + chrome_bottom
     open('%s/%s.html' % (ROOT, slug), 'w').write(html)
     print('wrote', slug)
 
@@ -1075,7 +1077,7 @@ REGULAR_A = ('Yes. We provide a bespoke service to suit every need and budget, f
 LOCATIONS = [
   {
     'slug': 'cleaners-huyton', 'town': 'Huyton', 'miles': 2.0, 'dist': 'about 2 miles',
-    'img': ('work/drive-front-after', 900, 1088, ['-500 500w', ' 900w'], 'Clean red herringbone block paving driveway in front of a house after jet washing'),
+    'img': ('work/drive-front-wide', 1040, 780, ['-400 400w', '-720 720w', ' 1040w'], 'Clean red herringbone block paving driveway in front of a house after jet washing'),
     'lead': 'All Cleanz is a domestic and commercial cleaning company based just down the road in Prescot, about 2 miles from Huyton. From regular home cleans to end of tenancy, carpet and office cleaning, we look after homes and businesses across Huyton.',
     'story': ('We already work in Huyton: our clients include King George V Sports Complex on Longview Lane.',
               'Whether you need a regular daily, weekly or monthly clean or just a one off, you can count on us. With All Cleanz, clients know exactly what to expect: professionalism, efficiency and exceptional results.'),
@@ -1310,3 +1312,88 @@ anchor = f'- [About]({SITE}about)'
 assert anchor in txt
 open(path, 'w').write(txt.replace(anchor, lines + anchor))
 print('towns:', ', '.join(l['town'] for l in LOCATIONS))
+
+# ---------- 7. Our Work gallery ----------
+OVEN = 'assets/img/before-after/'
+work_body = (
+    work_section('drive-title', 'Driveways &amp; patios',
+        'Jet washing removes dirt, moss, algae and weeds from block paving and patios. Drag the sliders to compare. <a href="jet-washing">About our jet washing</a>.',
+        '<div class="ba-grid">'
+        + ba_slider('drive-front', 'Herringbone block paving driveway covered in weeds and dirt before jet washing',
+                    'The same driveway after jet washing, with the weeds gone and the paving bright red again')
+        + ba_slider('drive-block', 'Grey block paving driveway with moss and green staining before jet washing',
+                    'The same driveway after jet washing, clean and dark grey')
+        + '</div>'
+        + ba_pair('drive-garage', 640, 800, 'Long red block paving driveway with weeds growing between the blocks, before jet washing',
+                  'The same driveway after jet washing, clean and bright red')
+        + gallery([('patio-sandstone', 'Sandstone patio freshly jet washed beside a house'),
+                   ('patio-slabs', 'Grey patio slabs being jet washed outside a patio door')]), mint=True)
+    + work_section('oven-title', 'Ovens',
+        'We disassemble the oven and deep clean the parts. <a href="oven-cleaning">About our oven cleaning</a>.',
+        '<div class="ba-grid ba-grid--one">'
+        + ba_slider('oven', 'The oven before cleaning, with the door glass coated in baked-on grease',
+                    'Oven after cleaning by All Cleanz, with a clear glass door and clean shelves', base=OVEN)
+        + '</div>', mint=False)
+    + work_section('gutter-title', 'Gutters, soffits &amp; fascias',
+        'Gutter cleaning with a high reach gutter vacuum, plus soffit, fascia and downpipe cleaning. <a href="gutter-cleaning">About our gutter cleaning</a>.',
+        ba_pair('gutter-fascia', 640, 640, 'White fascia and downpipe streaked with black dirt and algae before cleaning',
+                'The same fascia and downpipe after cleaning, bright white again')
+        + '<ul class="work-gallery work-gallery--one"><li class="reveal"><img src="assets/img/services/gutter-vacuum-720.webp" '
+          'srcset="assets/img/services/gutter-vacuum-400.webp 400w, assets/img/services/gutter-vacuum-720.webp 720w, assets/img/services/gutter-vacuum.webp 1040w" '
+          'sizes="(max-width: 760px) 92vw, 760px" alt="All Cleanz high reach gutter vacuum pole cleaning the gutter of a brick house" '
+          'width="720" height="540" loading="lazy"></li></ul>', mint=True)
+    + work_section('carpet-title', 'Carpets',
+        'Texatherm<sup>&reg;</sup> carpet cleaning, with textiles dry in 30 minutes, guaranteed. <a href="carpet-upholstery-cleaning">About our carpet cleaning</a>.',
+        gallery([('carpet-rotary', 'Carpet cleaning machine at work in an empty room, with the cleaned carpet visibly lighter'),
+                 ('carpet-doormat', 'Carpet by a front door, half cleaned, showing the dirty and clean sections side by side'),
+                 ('carpet-lines', 'Freshly cleaned light carpet showing clean lines beside an uncleaned strip'),
+                 ('carpet-machine', 'All Cleanz carpet cleaning machine being set up')]), mint=False)
+    + work_section('stairs-title', 'Stairs',
+        'An outdoor staircase with grit stair treads, before and after.',
+        ba_pair('stairs', 640, 800, 'Outdoor staircase with blue railings and stained grit stair treads before cleaning',
+                'The same staircase after cleaning, with clean, even stair treads'), mint=True)
+    + f'''
+    <section class="section areas-more" aria-label="More on social media">
+      <div class="container"><p class="services__more reveal">See more of our latest jobs on <a href="https://www.facebook.com/AllcleanzNW" target="_blank" rel="noopener">Facebook</a> and <a href="https://www.instagram.com/allcleanz/" target="_blank" rel="noopener">Instagram</a>.</p></div>
+    </section>
+'''
+    + cta_band('Want results like these?', "Hi All Cleanz, I'd like a quote please. I'm looking for: "))
+write_page('our-work',
+    'Our Work | Before &amp; After Photos | All Cleanz',
+    'Before and after photos from real All Cleanz jobs across Merseyside and the North West: driveways, patios, ovens, gutters, carpets and more.',
+    'CollectionPage', 'Our work', 'Our Work',
+    page_hero('Our Work', ('Our', 'Work'), 'Real before &amp; after photos',
+        'Every photo on this page is from a real All Cleanz job. From driveways and patios to ovens, gutters and carpets, here&rsquo;s the difference a professional clean makes.',
+        ('work/drive-front-wide', 1040, 780, ['-400 400w', '-720 720w', ' 1040w'], 'Clean red herringbone block paving driveway in front of a house after jet washing'),
+        "Hi All Cleanz, I'd like a quote please. I'm looking for: ",
+        f'<a href="#drive-title" class="hero__textlink">See the photos {ICON % "arrow"}</a>'),
+    work_body)
+
+# ---------- 8. Leave a review (utility page, kept out of search) ----------
+REVIEW_URL = 'https://search.google.com/local/writereview?placeid=ChIJE3yGEImFwWURhPb_ciz941g'
+review_body = f'''
+    <section class="section legal" aria-labelledby="review-title">
+      <div class="container">
+        <div class="review-card reveal">
+          <h2 id="review-title" class="section-title">Thank you for choosing All Cleanz</h2>
+          <p class="lead">Happy with your clean? A quick Google review really helps other people find us, and it only takes a minute.</p>
+          <div class="page-cta__btns review-card__btns">
+            <a href="{REVIEW_URL}" target="_blank" rel="noopener" class="btn btn--primary btn--lg">Leave a Google review {ICON % 'arrow'}</a>
+            <a href="https://share.google/Gg61WBgD1EcMRRVPn" target="_blank" rel="noopener" class="btn btn--outline btn--lg">Read our reviews</a>
+          </div>
+          <figure class="review-card__qr">
+            <img src="assets/img/review-qr.svg" alt="QR code that opens the All Cleanz Google review form" width="280" height="280">
+            <figcaption>Or scan with your phone camera</figcaption>
+          </figure>
+          <p class="review-card__note">Not happy with something? Please tell us first on <a href="tel:+447721938429">07721 938429</a> so we can put it right.</p>
+        </div>
+      </div>
+    </section>
+'''
+review_hero = legal_hero.replace('Privacy <em>Policy</em>', 'Leave Us a <em>Review</em>').replace(
+    '<span class="hero__title-sm">Last updated 13 November 2026</span>', '<span class="hero__title-sm">Rated 4.9 out of 5 on Google</span>').replace(
+    '<li><span aria-current="page">Privacy Policy</span></li>', '<li><span aria-current="page">Leave a Review</span></li>')
+write_page('review',
+    'Leave Us a Review | All Cleanz',
+    'Happy with your All Cleanz clean? Leave us a quick Google review. It really helps other people across Merseyside and the North West find us.',
+    'WebPage', 'Leave us a review', 'Leave a Review', review_hero, review_body, robots='noindex, follow')
