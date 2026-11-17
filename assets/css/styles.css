@@ -386,6 +386,12 @@ body.nav-open .header::before { background: var(--white); }
 .google-rating__detail { display: flex; flex-direction: column; gap: 4px; font-weight: 600; color: var(--ink); font-size: .95rem; }
 .google-rating .stars { color: #f4b400; }
 .google-rating .stars__base { opacity: .25; }
+.google-rating__score--fb { text-decoration: none; padding-left: 28px; border-left: 1px solid var(--line); }
+.google-rating__score--fb:hover .google-rating__detail span:last-child { text-decoration: underline; text-underline-offset: 3px; }
+.fb-mark { display: inline-flex; align-items: center; gap: 6px; color: #1877f2; }
+.fb-mark .ico { width: 18px; height: 18px; padding: 2px; border-radius: 50%; background: #1877f2; color: var(--white); }
+.rating--fb .ico { width: 22px; height: 22px; padding: 3px; border-radius: 50%; background: var(--white); color: #1877f2; }
+@media (max-width: 600px) { .google-rating__score--fb { padding-left: 0; border-left: 0; } }
 .hero__textlink {
   display: inline-flex; align-items: center; gap: .5em;
   font-weight: 600; color: var(--white); text-decoration: none;

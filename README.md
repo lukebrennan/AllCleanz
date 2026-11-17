@@ -81,6 +81,7 @@ Photos: almost all photos are All Cleanz's own, taken from their Facebook page (
 6. Google Business Profile: set the website to `https://www.allcleanz.co.uk/` and check the name, phone and service area match the site.
 7. Test the homepage and a service page in Google's Rich Results Test and the Schema Markup Validator.
 8. Watch Search Console's Pages report for 404s over the first few weeks.
+9. Check the Facebook figure ("98% recommend, 139 reviews") on the Facebook page's Reviews tab and update it in `index.html` (hero and reviews section), the FAQ answer in `tools/build_pages.py` and `llms.txt` if it has changed.
 
 ## Launch settings (`netlify.toml`)
 

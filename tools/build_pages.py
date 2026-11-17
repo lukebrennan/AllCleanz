@@ -1418,7 +1418,7 @@ FAQ_GROUPS = [
      'To ensure the highest levels of customer satisfaction we use quality control programmes, including on-site inspections and customer surveys. '
      'For commercial contracts we also carry out frequent site supervision and quality checks.'),
     ('What do your customers say about you?',
-     'We&rsquo;re rated 4.9 out of 5 on Google. You can <a href="https://share.google/Gg61WBgD1EcMRRVPn" target="_blank" rel="noopener">read our Google reviews</a> or see some of them on our <a href="about">About page</a>.'),
+     'We&rsquo;re rated 4.9 out of 5 on Google, and 98% of people who&rsquo;ve reviewed us on Facebook recommend us (139 reviews). You can read our <a href="https://share.google/Gg61WBgD1EcMRRVPn" target="_blank" rel="noopener">Google reviews</a> and <a href="https://www.facebook.com/AllcleanzNW/reviews" target="_blank" rel="noopener">Facebook reviews</a>, or see some of them on our <a href="about">About page</a>.'),
     ('How do I get a quote?', QUOTE_A),
   ]),
   ('Home cleaning', [
