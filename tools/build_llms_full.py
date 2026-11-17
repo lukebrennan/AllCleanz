@@ -2,12 +2,12 @@
 
 Usage (from the repository root): python3 tools/build_llms_full.py .
 Run after tools/build_pages.py, or after any change to page copy."""
-import re, sys, html as H
+import re, sys, os, glob, html as H
 ROOT = sys.argv[1]
 B = 'https://www.allcleanz.co.uk/'
 ORDER = ['index', 'services', 'end-of-tenancy-cleaning', 'deep-cleaning', 'domestic-cleaning', 'carpet-upholstery-cleaning',
          'office-cleaning', 'oven-cleaning', 'after-build-cleaning', 'pre-post-party-cleaning', 'fridge-cleaning',
-         'window-cleaning', 'car-valeting', 'jet-washing', 'gutter-cleaning', 'bbq-cleaning', 'areas-we-cover', 'cleaners-huyton', 'cleaners-st-helens', 'cleaners-liverpool', 'about', 'join-the-team', 'privacy-policy']
+         'window-cleaning', 'car-valeting', 'jet-washing', 'gutter-cleaning', 'bbq-cleaning', 'areas-we-cover', *sorted(os.path.basename(f)[:-5] for f in glob.glob(sys.argv[1] + '/cleaners-*.html')), 'about', 'join-the-team', 'privacy-policy']
 SKIP = {'form', 'nav', 'script', 'style', 'svg', 'button', 'noscript'}
 BLOCK = {'h1': '# ', 'h2': '## ', 'h3': '### ', 'p': '', 'li': '- ', 'blockquote': '> ', 'figcaption': '', 'dt': '', 'dd': ''}
 

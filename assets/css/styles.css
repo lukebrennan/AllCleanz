@@ -1058,8 +1058,6 @@ a.client:hover .client__go, a.client:focus-visible .client__go { opacity: 1; tra
 
 /* Location pages */
 .note__more { margin: 14px 0 0; font-size: .95rem; }
-.rooms--areas { grid-template-columns: 1fr 1fr; max-width: 900px; margin-inline: auto; }
-@media (max-width: 760px) { .rooms--areas { grid-template-columns: 1fr; } }
 .room h3 a { color: inherit; text-decoration: none; }
 .room h3 a::after { content: " \2192"; }
 .room h3 a:hover { text-decoration: underline; text-underline-offset: 3px; }

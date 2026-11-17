@@ -176,6 +176,24 @@
     </image:image>
   </url>
   <url>
+    <loc>https://www.allcleanz.co.uk/cleaners-whiston</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/services/deep-clean.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.allcleanz.co.uk/cleaners-rainhill</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/work/patio-sandstone.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://www.allcleanz.co.uk/cleaners-huyton</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -194,12 +212,39 @@
     </image:image>
   </url>
   <url>
+    <loc>https://www.allcleanz.co.uk/cleaners-kirkby</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/services/oven-clean.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.allcleanz.co.uk/cleaners-widnes</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/services/gutter-vacuum.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
     <loc>https://www.allcleanz.co.uk/cleaners-liverpool</loc>
     <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <image:image>
       <image:loc>https://www.allcleanz.co.uk/assets/img/services/office.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.allcleanz.co.uk/cleaners-warrington</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.allcleanz.co.uk/assets/img/work/carpet-rotary.webp</image:loc>
     </image:image>
   </url>
   <url>

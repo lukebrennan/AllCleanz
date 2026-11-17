@@ -1074,7 +1074,7 @@ REGULAR_A = ('Yes. We provide a bespoke service to suit every need and budget, f
 
 LOCATIONS = [
   {
-    'slug': 'cleaners-huyton', 'town': 'Huyton', 'miles': 2,
+    'slug': 'cleaners-huyton', 'town': 'Huyton', 'miles': 2.0, 'dist': 'about 2 miles',
     'img': ('work/drive-front-after', 900, 1088, ['-500 500w', ' 900w'], 'Clean red herringbone block paving driveway in front of a house after jet washing'),
     'lead': 'All Cleanz is a domestic and commercial cleaning company based just down the road in Prescot, about 2 miles from Huyton. From regular home cleans to end of tenancy, carpet and office cleaning, we look after homes and businesses across Huyton.',
     'story': ('We already work in Huyton: our clients include King George V Sports Complex on Longview Lane.',
@@ -1089,7 +1089,7 @@ LOCATIONS = [
     'desc': 'Domestic and commercial cleaners in Huyton, based 2 miles away in Prescot. End of tenancy, deep cleans, carpets, offices and more. Call 07721 938429.',
   },
   {
-    'slug': 'cleaners-st-helens', 'town': 'St Helens', 'miles': 3,
+    'slug': 'cleaners-st-helens', 'town': 'St Helens', 'miles': 3.1, 'dist': 'about 3 miles',
     'img': ('services/end-of-tenancy-room', 1200, 900, ['-400 400w', '-720 720w', ' 1200w'], 'Bright, empty room with a fireplace and clean wooden floor after an end of tenancy clean'),
     'lead': 'Looking for reliable cleaners in St Helens? All Cleanz is based in neighbouring Prescot, about 3 miles from St Helens town centre, and provides professional domestic and commercial cleaning across St Helens.',
     'story': ('From a routine domestic clean to a thorough top to bottom end of tenancy clean, our expert cleaners are happy to take on any cleaning job. We clean private homes, rental properties, offices and commercial premises.',
@@ -1104,7 +1104,7 @@ LOCATIONS = [
     'desc': 'Domestic and commercial cleaners in St Helens, based 3 miles away in Prescot. End of tenancy, deep cleans, carpets, offices and more. Call 07721 938429.',
   },
   {
-    'slug': 'cleaners-liverpool', 'town': 'Liverpool', 'miles': 8,
+    'slug': 'cleaners-liverpool', 'town': 'Liverpool', 'miles': 8.0, 'dist': 'about 8 miles',
     'img': ('services/office', 720, 540, ['-400 400w', ' 720w'], 'Gloved hand wiping a desk and keyboard during an office clean'),
     'lead': 'All Cleanz provides professional domestic and commercial cleaning across Liverpool, from our base in Prescot, about 8 miles from the city centre. Homes, rental properties, offices and commercial premises: we have the experience and skills to tackle just about every type of cleaning job.',
     'story': ('Our range of services is tailored to the requirements of each home, business and setting. We offer flexible office cleaning contracts, thorough end of tenancy and deep cleans, and regular daily, weekly or monthly home cleaning.',
@@ -1119,6 +1119,85 @@ LOCATIONS = [
     'desc': 'Domestic and commercial cleaners covering Liverpool from our base in Prescot. Offices, end of tenancy, deep cleans, carpets and more. Call 07721 938429.',
   },
 ]
+
+LOCATIONS += [
+  {
+    'slug': 'cleaners-whiston', 'town': 'Whiston', 'miles': 1.0, 'dist': 'about 1 mile',
+    'img': ('services/deep-clean', 1200, 900, ['-400 400w', '-720 720w', ' 1200w'], 'Clean, organised kitchen shelf and worktop after a deep clean'),
+    'lead': 'Whiston is right next door to our base in Prescot, about 1 mile away, so All Cleanz is never far from your door. We provide professional domestic and commercial cleaning for homes and businesses across Whiston.',
+    'story': ('We know your time is precious, so let us take care of your cleaning, from a regular daily, weekly or monthly clean to a top to bottom deep clean that gets into all the nooks and crannies around your home.',
+              'At All Cleanz we offer professional quality cleaning with a personal touch. With high standards and reasonable prices, we offer great value for money.'),
+    'nearby': ['Whiston village', 'Halsnead', 'Cronton', 'Tarbock'],
+    'faq': [
+      ('Do you cover Whiston?', 'Yes. Whiston is about 1 mile from our base in Prescot, and we clean homes and businesses across Whiston and the rest of Merseyside and the North West.'),
+      ('Do you offer deep cleans in Whiston?', 'Yes. Our deep clean is a top to bottom thorough clean, done with your belongings in place, reaching those neglected areas. It&rsquo;s ideal before selling, after moving in or before a new baby arrives. See our <a href="deep-cleaning">deep cleaning</a> page.'),
+      ('Can I book a regular clean?', REGULAR_A),
+      ('How do I get a quote?', QUOTE_A),
+    ],
+    'desc': 'Domestic and commercial cleaners in Whiston, just 1 mile from our Prescot base. Regular cleans, deep cleans, carpets, ovens and more. Call 07721 938429.',
+  },
+  {
+    'slug': 'cleaners-rainhill', 'town': 'Rainhill', 'miles': 1.7, 'dist': 'under 2 miles',
+    'img': ('work/patio-sandstone', 720, 540, ['-400 400w', ' 720w'], 'Sandstone patio freshly jet washed beside a house'),
+    'lead': 'Rainhill sits just east of Prescot, under 2 miles from our base. All Cleanz provides domestic and commercial cleaning across Rainhill, inside and out, from regular home cleans to jet washing driveways and patios.',
+    'story': ('Inside, we offer everything from a routine domestic clean to a thorough end of tenancy clean, plus Texatherm<sup>&reg;</sup> carpet and upholstery cleaning with a 30 minute drying time, guaranteed.',
+              'Outside, we specialise in cleaning exterior surfaces professionally. Jet washing quickly removes dirt, moss and algae from driveways, paths and patios, and we also clean gutters, soffits and fascias.'),
+    'nearby': ['Rainhill village', 'Rainhill Stoops', 'Eccleston Park', 'Bold', 'Sutton Manor'],
+    'faq': [
+      ('Do you cover Rainhill?', 'Yes. Rainhill is under 2 miles from our base in Prescot, and we clean homes and businesses across Rainhill and the rest of Merseyside and the North West.'),
+      ('Do you clean driveways and patios in Rainhill?', 'Yes. Jet washing is suitable for driveways, patios, paving, stone walls, decking, fencing and some flat roofing systems. See our <a href="jet-washing">jet washing</a> page for before and after photos.'),
+      ('How quickly will my carpets dry?', CARPET_A),
+      ('How do I get a quote?', QUOTE_A),
+    ],
+    'desc': 'Domestic and commercial cleaners in Rainhill, under 2 miles from our Prescot base. Home cleans, carpets, jet washing and more. Call 07721 938429.',
+  },
+  {
+    'slug': 'cleaners-kirkby', 'town': 'Kirkby', 'miles': 5.2, 'dist': 'about 5 miles',
+    'img': ('services/oven-clean', 720, 540, ['-400 400w', ' 720w'], 'Oven with a clear glass door and clean interior after oven cleaning'),
+    'lead': 'Kirkby is in Knowsley, like our home town of Prescot, about 5 miles from our base. All Cleanz provides professional domestic and commercial cleaning for homes, offices and commercial properties across Kirkby.',
+    'story': ('Our expert cleaners are trained to be the best in their field and are happy to take on any cleaning job, from a routine domestic clean to a thorough top to bottom end of tenancy clean.',
+              'We also take on the jobs nobody enjoys: oven cleaning, fridge cleaning and BBQ cleaning. For an oven clean we disassemble the oven and deep clean the parts, and it&rsquo;s safe to use straight after cleaning.'),
+    'nearby': ['Kirkby town centre', 'Northwood', 'Tower Hill', 'Westvale', 'Southdene', 'Knowsley Village'],
+    'faq': [
+      ('Do you cover Kirkby?', 'Yes. Kirkby is about 5 miles from our base in Prescot, and we clean homes and businesses across Kirkby and the rest of Merseyside and the North West.'),
+      ('Can you clean my oven?', 'Yes. Our domestic and commercial oven cleaners disassemble the oven and deep clean the parts, using techniques that leave it spotlessly clean with no damage and minimal chemical use. It&rsquo;s safe to use straight after cleaning. See our <a href="oven-cleaning">oven cleaning</a> page.'),
+      ('Can I book a regular clean?', REGULAR_A),
+      ('How do I get a quote?', QUOTE_A),
+    ],
+    'desc': 'Domestic and commercial cleaners in Kirkby, about 5 miles from our Prescot base. Regular cleans, end of tenancy, ovens, carpets and more. Call 07721 938429.',
+  },
+  {
+    'slug': 'cleaners-widnes', 'town': 'Widnes', 'miles': 5.4, 'dist': 'about 5 miles',
+    'img': ('services/gutter-vacuum', 1040, 780, ['-400 400w', '-720 720w', ' 1040w'], 'High reach gutter vacuum pole cleaning the gutter of a brick house'),
+    'lead': 'Widnes is just over the border in Cheshire, about 5 miles from our base in Prescot and well within the North West area we cover. All Cleanz provides domestic and commercial cleaning for homes and businesses across Widnes.',
+    'story': ('From regular home cleaning to end of tenancy, deep cleans and Texatherm<sup>&reg;</sup> carpet cleaning, we offer a bespoke service to suit every need and budget.',
+              'We also look after the outside of your property. When rainwater can&rsquo;t run freely through your gutters it can lead to an overflow, so we offer residential and commercial gutter cleaning, drainpipe unblocking and soffit and fascia cleaning.'),
+    'nearby': ['Widnes town centre', 'Hough Green', 'Ditton', 'Farnworth', 'Upton Rocks', 'Appleton'],
+    'faq': [
+      ('Do you cover Widnes?', 'Yes. Widnes is about 5 miles from our base in Prescot, and we clean homes and businesses across Widnes and the rest of the North West.'),
+      ('Do you clean gutters in Widnes?', 'Yes. Our services include residential and commercial gutter cleaning, unblocking drainpipes, minor gutter repairs, soffit and fascia cleaning and conservatory roof cleaning. See our <a href="gutter-cleaning">gutter cleaning</a> page.'),
+      ('How quickly will my carpets dry?', CARPET_A),
+      ('How do I get a quote?', QUOTE_A),
+    ],
+    'desc': 'Domestic and commercial cleaners in Widnes, about 5 miles from our Prescot base. Home cleans, carpets, gutters and more. Call or WhatsApp 07721 938429.',
+  },
+  {
+    'slug': 'cleaners-warrington', 'town': 'Warrington', 'miles': 8.8, 'dist': 'about 9 miles',
+    'img': ('work/carpet-rotary', 720, 540, ['-400 400w', ' 720w'], 'Carpet cleaning machine at work in an empty room, with the cleaned carpet visibly lighter'),
+    'lead': 'All Cleanz covers Warrington from our base in Prescot, about 9 miles away. We provide professional domestic and commercial cleaning for homes, offices and commercial properties across Warrington.',
+    'story': ('For carpet, upholstery and hard floor cleaning we use the patented Texatherm<sup>&reg;</sup> process, which combines market leading technology with state of the art equipment. Textiles dry in just 30 minutes, guaranteed.',
+              'For businesses, we offer flexible cleaning contracts: a daily office clean, a few hours per week, or periodical cleans to carpets and upholstery, with frequent site supervision and quality checks.'),
+    'nearby': ['Warrington town centre', 'Great Sankey', 'Penketh', 'Westbrook', 'Burtonwood', 'Orford'],
+    'faq': [
+      ('Do you cover Warrington?', 'Yes. Warrington is about 9 miles from our base in Prescot, and we clean homes and businesses across Warrington and the rest of the North West.'),
+      ('Do you offer carpet cleaning in Warrington?', CARPET_A),
+      ('Do you clean offices in Warrington?', 'Yes. We offer flexible, professional cleaning contracts: a daily office clean, a few hours per week, or periodical cleans to carpets and upholstery. See our <a href="office-cleaning">office cleaning</a> page.'),
+      ('How do I get a quote?', QUOTE_A),
+    ],
+    'desc': 'Domestic and commercial cleaners covering Warrington from our Prescot base. Texatherm carpet cleaning, offices, home cleans and more. Call 07721 938429.',
+  },
+]
+LOCATIONS.sort(key=lambda l: l['miles'])
 
 def other_areas(current):
     links = ['<a href="./">Prescot</a>'] + [f'<a href="{l["slug"]}">{l["town"]}</a>' for l in LOCATIONS if l['slug'] != current]
@@ -1165,8 +1244,8 @@ for L in LOCATIONS:
 
 # Areas we cover
 area_cards = ('<ul class="rooms rooms--areas">'
-    '<li class="room reveal"><h3><a href="./">Prescot</a></h3><p>Our home base. Domestic and commercial cleaning across Prescot, Whiston, Rainhill, Eccleston Park, Knowsley Village and Cronton.</p></li>'
-    + ''.join(f'<li class="room reveal"><h3><a href="{l["slug"]}">{l["town"]}</a></h3><p>About {l["miles"]} miles from our base. Covering {", ".join(l["nearby"][:-1])} and {l["nearby"][-1]}.</p></li>' for l in LOCATIONS)
+    '<li class="room reveal"><h3><a href="./">Prescot</a></h3><p>Our home base. Domestic and commercial cleaning across Prescot, Eccleston Park, Knowsley Village and Cronton.</p></li>'
+    + ''.join(f'<li class="room reveal"><h3><a href="{l["slug"]}">{l["town"]}</a></h3><p>{l["dist"][0].upper() + l["dist"][1:]} from our base. Covering {", ".join(l["nearby"][:-1])} and {l["nearby"][-1]}.</p></li>' for l in LOCATIONS)
     + '</ul>')
 write_page('areas-we-cover',
     'Areas We Cover | Cleaners Across Merseyside | All Cleanz',
@@ -1190,3 +1269,44 @@ write_page('areas-we-cover',
     extra={'mainEntity': {'@type': 'ItemList', 'itemListElement': [
         {'@type': 'ListItem', 'position': 1, 'name': 'Prescot', 'url': SITE}] + [
         {'@type': 'ListItem', 'position': i + 2, 'name': l['town'], 'url': SITE + l['slug']} for i, l in enumerate(LOCATIONS)]}})
+
+# ---------- 6. Keep everything that lists the towns in step with LOCATIONS ----------
+# Turning a town off = delete its entry above and re-run this script. Its page, homepage link,
+# sitemap entry and llms.txt line all go; add a 301 to /areas-we-cover in netlify.toml if it was live.
+import glob, os
+live = {l['slug'] for l in LOCATIONS}
+for f in glob.glob(ROOT + '/cleaners-*.html'):
+    if os.path.basename(f)[:-5] not in live:
+        os.remove(f)
+        print('removed', os.path.basename(f))
+
+def town_list(links):
+    return ', '.join(links[:-1]) + ' and ' + links[-1]
+
+path = ROOT + '/index.html'
+html = open(path).read()
+para = ('<p>Based in Prescot, we clean homes and businesses across Merseyside and the North West, including '
+        + town_list([f'<a href="{l["slug"]}">{l["town"]}</a>' for l in LOCATIONS])
+        + '. <a href="areas-we-cover">See all the areas we cover</a>.</p>')
+html, n = re.subn(r'<p>Based in Prescot, we clean homes and businesses across Merseyside and the North West, including .*?</p>', para, html, count=1)
+assert n == 1, 'homepage areas paragraph not found'
+open(path, 'w').write(html)
+
+path = ROOT + '/sitemap.xml'
+xml = open(path).read()
+xml = re.sub(r'  <url>\n    <loc>https://www\.allcleanz\.co\.uk/cleaners-[a-z-]+</loc>.*?</url>\n', '', xml, flags=re.S)
+entries = ''.join(
+    f'  <url>\n    <loc>{SITE}{l["slug"]}</loc>\n    <lastmod>2026-11-17</lastmod>\n    <changefreq>monthly</changefreq>\n'
+    f'    <priority>0.7</priority>\n    <image:image>\n      <image:loc>{SITE}assets/img/{l["img"][0]}.webp</image:loc>\n    </image:image>\n  </url>\n'
+    for l in LOCATIONS)
+anchor = f'  <url>\n    <loc>{SITE}about</loc>'
+assert anchor in xml
+open(path, 'w').write(xml.replace(anchor, entries + anchor))
+
+path = ROOT + '/llms.txt'
+txt = '\n'.join(line for line in open(path).read().split('\n') if '/cleaners-' not in line)
+lines = ''.join(f'- [Cleaners in {l["town"]}]({SITE}{l["slug"]}): Domestic and commercial cleaning in {l["town"]}, {l["dist"]} from our Prescot base\n' for l in LOCATIONS)
+anchor = f'- [About]({SITE}about)'
+assert anchor in txt
+open(path, 'w').write(txt.replace(anchor, lines + anchor))
+print('towns:', ', '.join(l['town'] for l in LOCATIONS))
